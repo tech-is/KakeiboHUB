@@ -33,7 +33,6 @@ class Hub extends CI_Controller
 
         // バリデーション
         $this->load->helper(array('form', 'url'));
-		
         $this->load->library('form_validation');
 
 		if ($this->form_validation->run('hub') == FALSE)
@@ -94,7 +93,7 @@ class Hub extends CI_Controller
         // redirect('http://localhost/Hub/setting/');
         header('location: http://localhost/Hub/setting/');
         exit;
-    }
+        }
     }
 
     public function setting()

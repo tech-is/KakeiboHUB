@@ -1,21 +1,5 @@
 <body>
     <div class="">
-        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="#">ログアウト</a>
-            
-            <div class="collapse navbar-collapse" "navbarTogglerDemo03">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="*">トップページ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="*">投稿</a></li>
-                    <li class="nav-item"><a class="nav-link" href="*">DM</a></li>
-                    <li class="nav-item"><a class="nav-link" href="*">履歴</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="http://localhost/Hub/setting/">設定<span class="sr-only">(current)</span></a></li>
-                </ul>
-            </div>
-        </nav> -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <a class="navbar-brand" href="#">ログアウト</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
