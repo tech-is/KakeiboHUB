@@ -14,7 +14,7 @@ class Hub extends CI_Controller
 
     public function index()
     {
-        
+        $this->load->view('hub_view');
     }
 
     public function add()
@@ -37,7 +37,6 @@ class Hub extends CI_Controller
 
 		if ($this->form_validation->run('hub') == FALSE)
 		{
-            $this->load->view('header_view.php');
             $this->load->view('setting_view');
 		} else {
 
@@ -99,7 +98,6 @@ class Hub extends CI_Controller
     public function setting()
     {
         $this->load->helper(array('form', 'url'));
-        $this->load->view('header_view.php');
         $this->load->view('setting_view');
     }
 
