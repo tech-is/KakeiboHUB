@@ -1,0 +1,103 @@
+@charset "utf-8";
+body {
+    padding: 50px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    padding: 30px;
+    color: #432;
+    font-size: 200%;
+    border-bottom: 1px solid #999;
+}
+
+h2 {
+    margin-bottom: 5px;
+    padding: 30px;
+    color: #432;
+    font-size: 150%;
+    text-align: center;
+}
+
+input[type=text] {
+    padding: 5px 100px;
+    font-size: 100%;
+    border: none;
+    border-radius: 5px;
+    background: #8cd1f1;
+    text-align: center;
+}
+
+input[type=password] {
+    padding: 5px 100px;
+    font-size: 100%;
+    border: none;
+    border-radius: 5px;
+    background: #8cd1f1;
+    text-align: center;
+}
+
+fieldset {
+    padding: 30px 50px;
+    display: inline-block;
+    line-height: 35px;
+    margin: 50px;
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 5%;
+    /* 角丸       */
+    font-size: 18pt;
+    /* 文字サイズ */
+    text-align: center;
+    /* 文字位置   */
+    cursor: pointer;
+    /* カーソル   */
+    padding: 12px 12px;
+    /* 余白       */
+    background: #000066;
+    /* 背景色     */
+    color: #ffffff;
+    /* 文字色     */
+    line-height: 1em;
+    /* 1行の高さ  */
+    transition: .3s;
+    /* なめらか変化 */
+    box-shadow: 6px 6px 3px #666666;
+    /* 影の設定 */
+    border: 2px solid #000066;
+    /* 枠の指定 */
+}
+
+.button:hover {
+    box-shadow: none;
+    /* カーソル時の影消去 */
+    color: #000066;
+    /* 背景色     */
+    background: #ffffff;
+    /* 文字色     */
+}
+
+.element_wrap {
+    padding: 20px;
+    text-align: center;
+    font-size: 80%;
+    border-bottom: 1px solid #ccc;
+}
+
+.error_list {
+    padding: 10px 30px;
+    color: #ff2e5a;
+    font-size: 86%;
+    text-align: left;
+    border: 1px solid #ff2e5a;
+    border-radius: 5px;
+}
+
+.members {
+    border: 1px solid #209eff;
+    border: 5px solid #1453dc;
+}
