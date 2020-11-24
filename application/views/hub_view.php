@@ -89,12 +89,12 @@
 		</div>
 		<div class="divider"></div>
 		<ul class="nav menu">
-			<li class="active"><a href="index.html"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
+			<li class="active"><a href="http://localhost/Hub/index/"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
 			<li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> 投稿</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> 履歴</a></li>
 			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> Chat</a></li>
-			<li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Setting</a></li>
-			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+			<li><a href="http://localhost/Hub/setting/"><em class="fa fa-clone">&nbsp;</em> 設定</a></li>
+			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> ログアウト</a></li>
 		</ul>
 	</div><!--/.sidebar-->
 	
@@ -110,15 +110,15 @@
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-teal panel-widget border-right">
 						<div class="row no-padding"><em class="fa fa-xl fa-shopping-cart color-blue"></em>
-						<div class="large">200,000</div>
-							<div class="text-muted">収入</div>
+						<div class="large">50,000</div>
+							<div class="text-muted">浪費</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-blue panel-widget border-right">
 						<div class="row no-padding"><em class="fa fa-xl fa-comments color-orange"></em>
-						<div class="large">０</div>
+						<div class="large">1</div>
 							<div class="text-muted">チャット人数</div>
 						</div>
 					</div>
@@ -213,7 +213,7 @@
 							<li>
 								<div class="timeline-panel">
 									<div class="timeline-heading">
-										<h4 class="timeline-title">ハリーポッター</h4><h4 >愛媛</h4>
+										<h4 class="timeline-title">ハリーポッター 愛媛</h4>
 									</div>
 									<div class="timeline-body">
 										<p>ゴルフ　¥20000</p>
@@ -224,9 +224,6 @@
 					</div>
 				</div>
 			</div><!--/.col-->
-			<div class="col-sm-12">
-				<p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>
-			</div>
 		</div><!--/.row-->
 	</div>	<!--/.main-->
 	
@@ -238,6 +235,7 @@
 	<script src="/hub/assets/js/easypiechart-data.js"></script>
 	<script src="/hub/assets/js/bootstrap-datepicker.js"></script>
 	<script src="/hub/assets/js/custom.js"></script>
+	<!-- チャート -->
 	<script>
 		window.onload = function () {
 			var chart1 = document.getElementById("line-chart").getContext("2d");
