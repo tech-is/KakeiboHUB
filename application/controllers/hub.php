@@ -38,7 +38,7 @@ class Hub extends CI_Controller
 
         if ($this->form_validation->run() == FALSE) {
             //初回読み込み、またはエラー時のview呼び出し
-            $this->load->view('hub_view', $data);
+            $this->load->view('hub_register', $data);
         } else {
             $mail = $this->input->post('email', true);
             $password = $this->input->post('pass', true);
