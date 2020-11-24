@@ -19,7 +19,7 @@ class Hub extends CI_Controller
 
     public function add()
     {
-        // postの受け取り
+        // postの受け取り!
         $income = $this->input->post('income');
         $food_cost = $this->input->post('food_cost');
         $utility_cost = $this->input->post('utility_cost');
