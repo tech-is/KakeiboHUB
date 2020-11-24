@@ -32,4 +32,12 @@ class Hub_model extends CI_Model
         return $this->db->where('mail', $mail)
             ->update('user', ['pass' => $password]);
     }
+
+    // 配列に入れた情報をDBに格納する
+    public function hub_add($data)
+    {
+        $this->db->insert('user',$data);
+    }
+    
 }
+?>
