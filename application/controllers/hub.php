@@ -78,10 +78,4 @@ class Hub extends CI_Controller
         $this->load->view('hubsuccess_view');
     }
 
-    public function aaaa()
-    {
-        $this->load->view('techis');
-    }
-
-
 }
