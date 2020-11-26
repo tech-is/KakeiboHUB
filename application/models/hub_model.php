@@ -14,6 +14,7 @@ class Hub_model extends CI_Model
     public function add($data)
     {
         $this->db->insert('user', $data);
+        return $this->db->insert_id();
     }
 
     //重複確認

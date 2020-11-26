@@ -83,7 +83,7 @@
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/cake.png" alt="" />
+                        <img class="img-fluid" src="<?php base_url('assets/template/assets/img/portfolio/cake.png');?>" alt="" />
                     </div>
                 </div>
                 <!-- Portfolio Item 3-->
@@ -112,10 +112,10 @@
             <!-- About Section Content-->
             <div class="row">
                 <div class="col-lg-4 ml-auto">
-                    <p class="lead">家計簿は作業としても今までめんどくさくて続かなかったという人も多いと思います。同じ動作を何度もする事の手間を省き、細かい家計簿ではなく、大まかな家計簿としてご利用いただければと思います。</p>
+                    <p class="lead">家計簿は入力する事がめんどくさくて今まで続かなかったという人も多いと思います。そんな方の為にシンプルかつ使いやすい家計簿を作成致しました。また、普通に家計簿使いたいって思われてる方でも簡単な内容なので使いやすいはずです。</p>
                 </div>
                 <div class="col-lg-4 mr-auto">
-                    <p class="lead">掲示板要素を盛り込む事によってSNSのようにみんなとシェアしながら家計簿を楽しむ事が出来るという事で開発されたのがこの家計簿掲示板HUBです。</p>
+                    <p class="lead">掲示板要素を盛り込む事によってSNSのようにみんなとシェアしながら家計簿を楽しむ事が出来る今までになかった斬新な家計簿掲示板HUBです。</p>
                 </div>
             </div>
             <!-- About Section Button-->
@@ -154,20 +154,6 @@
                             <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                 <label>Email Address</label>
                                 <input class="form-control" id="email" type="email" placeholder="Email Address" required="required" data-validation-required-message="Please enter your email address." />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                <label>Phone Number</label>
-                                <input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number." />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                <label>Message</label>
-                                <textarea class="form-control" id="message" rows="5" placeholder="Message" required="required" data-validation-required-message="Please enter a message."></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -275,7 +261,7 @@
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="" />
+                                <img class="img-fluid rounded mb-5" src="<?php ('assets/template/assets/img/portfolio/cake.png');?>" alt="" />
                                 <!-- Portfolio Modal - Text-->
                                 <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                 <button class="btn btn-primary" data-dismiss="modal">

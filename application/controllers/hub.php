@@ -1,5 +1,4 @@
-<?php 
-if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Hub extends CI_Controller
 {
@@ -75,7 +74,8 @@ class Hub extends CI_Controller
             'pass' => $password,
         ];
         $this->load->model('hub_model');
-        $this->hub_model->add($data);
+        $id = $this->hub_model->add($data);
+        $_SESSION['id'] = $id;
         $this->load->helper('phpmailer');
         phpmailer_send($mail, $password, $url);
         $this->load->view('hubsuccess_view');
