@@ -81,7 +81,7 @@
 		</div><!-- /.container-fluid -->
 	</nav>
 
-	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+	<!-- <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<div class="profile-sidebar">
 			<div class="profile-usertitle">
 				<div class="profile-usertitle-name">Username</div>
@@ -91,14 +91,14 @@
 		</div>
 		<div class="divider"></div>
 		<ul class="nav menu">
-			<li><a href="http://localhost/Hub/index/"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
+			<li><a href="http://localhost/Hub/dashboard/"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
 			<li><a href="#"><em class="fa fa-calendar">&nbsp;</em> 投稿</a></li>
 			<li><a href="#"><em class="fa fa-bar-chart">&nbsp;</em> 履歴</a></li>
 			<li><a href="#"><em class="fa fa-toggle-off">&nbsp;</em> Chat</a></li>
 			<li class="active"><a href="http://localhost/Hub/setting/"><em class="fa fa-clone">&nbsp;</em> 設定</a></li>
 			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> ログアウト</a></li>
 		</ul>
-	</div><!--/.sidebar-->
+	</div>/.sidebar -->
 	
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
@@ -109,37 +109,37 @@
 
 		<div class="row">
             <div class="col-md-12">
-                <form data-toggle="validator" role="form" method="post" action="http://localhost/Hub/add/">
+                <form data-toggle="validator" role="form" method="post" action="http://localhost/Hub/update/">
                     <!-- <?php echo validation_errors(); ?> -->
                     <div class="form-group row">
                         <article class="form-group col-md-6">
                             <div class="col-md-auto">
                                 <label for="income">収入</label>
-                                <input type="text" class="form-control" id="income" name="income">
+                                <input type="text" class="form-control" id="income" name="income" value="">
                                 <?php echo form_error('income', '<div class="text-danger">', '</div>'); ?>
                             </div>
                             
                             <div class="col-md-auto">
                                 <label for="food_cost">食費</label>
-                                <input type="text" class="form-control" id="food_cost" name="food_cost">
+                                <input type="text" class="form-control" id="food_cost" name="food_cost" value="">
                                 <?php echo form_error('food_cost', '<div class="text-danger">', '</div>'); ?>
                             </div>
 
                             <div class="col-md-auto">
                                 <label for="utility_cost">光熱費</label>
-                                <input type="text" class="form-control" id="utility_cost" name="utility_cost">
+                                <input type="text" class="form-control" id="utility_cost" name="utility_cost" value="">
                                 <?php echo form_error('utility_cost', '<div class="text-danger">', '</div>'); ?>
                             </div>
                             
                             <div class="col-md-auto">
                                 <label for="rent">家賃</label>
-                                <input type="text" class="form-control" id="rent" name="rent">
+                                <input type="text" class="form-control" id="rent" name="rent" value="">
                                 <?php echo form_error('rent', '<div class="text-danger">', '</div>'); ?>
                             </div>
 
                             <div class="col-md-auto">
                                 <label for="etc">その他</label>
-                                <input type="text" class="form-control" id="etc" name="etc">
+                                <input type="text" class="form-control" id="etc" name="etc" value="">
                                 <?php echo form_error('etc', '<div class="text-danger">', '</div>'); ?>
                             </div>
                         </article>
@@ -147,42 +147,42 @@
                         <aside class="form-group col-md-6">
                             <div class="col-md-auto">
                                 <label for="budget">予算</label>
-                                <input type="text" class="form-control" id="budget" name="budget">
+                                <input type="text" class="form-control" id="budget" name="budget" value="">
                                 <?php echo form_error('budget', '<div class="text-danger">', '</div>'); ?>
                             </div>
                             
                             <div class="col-md-auto">
                                 <label for="name">ニックネーム</label>
-                                <input type="text" class="form-control" id="name" name="name">
+                                <input type="text" class="form-control" id="name" name="name" value="">
                                 <?php echo form_error('name', '<div class="text-danger">', '</div>'); ?>
                             </div>
 
                             <div class="col-md-auto">
                                 <label for="age">年齢</label>
-                                <input type="text" class="form-control" id="age" name="age">
+                                <input type="text" class="form-control" id="age" name="age" value="">
                                 <?php echo form_error('age', '<div class="text-danger">', '</div>'); ?>
                             </div>
 
                             <div class="col-md-auto">
                                 <label for="from">地域</label>
-                                <input type="text" class="form-control" id="from" name="from">
+                                <input type="text" class="form-control" id="from" name="from" value="">
                                 <?php echo form_error('from', '<div class="text-danger">', '</div>'); ?>
                             </div>
                             
                             <div class="col-md-auto">
                                 <label for="job">職業</label>
-                                <input type="text" class="form-control" id="job" name="job">
+                                <input type="text" class="form-control" id="job" name="job" value="">
                                 <?php echo form_error('job', '<div class="text-danger">', '</div>'); ?>
                             </div>
                             
                             <div class="col-md-auto">
                                 <label for="key">パスワード変更</label>
-                                <input type="text" class="form-control" id="key" name="key">
+                                <input type="text" class="form-control" id="key" name="key" value="">
                             </div>
                         </aside>
                     </div>
 
-                    <div class="form-row text-center">
+                    <div class="form-row text-right">
                         <div class="col-12">
                             <input type="submit" class="btn btn-primary  btn-lg" value="更新">
                         </div>

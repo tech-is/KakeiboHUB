@@ -81,7 +81,7 @@ class Hub extends CI_Controller
         $this->load->view('hubsuccess_view');
     }
 
-    public function nakata() {
+    public function dashboard() {
         $this->load->view('hub_view');
     }
 
@@ -165,9 +165,57 @@ class Hub extends CI_Controller
 
     public function setting()
     {
+        $id = $this->input->get('id');
+        $data['array'] = $this->hub_model->update_setting($id);
         $this->load->helper(array('form', 'url'));
         $this->load->view('setting_view');
     }
+
+    // public function update()
+    // {
+    //     $income = $this->input->post('income');
+    //     $food_cost = $this->input->post('food_cost');
+    //     $utility_cost = $this->input->post('utility_cost');
+    //     $rent = $this->input->post('rent');
+    //     $etc = $this->input->post('etc');
+    //     $budget = $this->input->post('budget');
+    //     $name = $this->input->post('name');
+    //     $age = $this->input->post('age');
+    //     $from = $this->input->post('from');
+    //     $job = $this->input->post('job');
+    //     $id = $this->input->post('id',true);
+        
+    //     $array = array(
+    //         'income' => $income,
+    //         'food_cost' => $food_cost,
+    //         'utility_cost' => $utility_cost,
+    //         'rent' => $rent,
+    //         'etc' => $etc,
+    //         'budget' => $budget,
+    //         'name' => $name,
+    //         'age' => $age,
+    //         'from' => $from,
+    //         'job' => $job
+    //     );
+    //     if(empty($income) || empty($food_cost) || empty($utility_cost) || empty($rent) || empty($etc) || empty($budget) || empty($name) || empty($age) || empty($from) || empty($job)) {
+    //         $data = [
+    //             'error' => '未入力の箇所がありました',
+    //         ];
+    //         if(!empty($data)) {
+    //             $id = $this->input->post('id');
+    //             $data['array'] = $this->hub_model->update_setting($id);
+    //             $this->load->view('setting_view',$data);
+    //             $this->load->model('hub_model');
+    //             $this->hub_model->update($id,$data);
+    //         }
+    //     }else{
+
+    //     $this->load->model('hub_model');
+    //     $this->hub_model->update($id,$array);
+    //     header('location: http://localhost/Hub/setting/');
+    //     exit;
+    //     }
+    // }
 
 }
 

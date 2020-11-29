@@ -38,6 +38,20 @@ class Hub_model extends CI_Model
     {
         $this->db->insert('user',$data);
     }
-    
+
+    public function update_setting($id)
+    {
+        $query = $this->db->where('id', $id);
+        $query = $this->db->get('user');
+        $result = $query->result('array');
+        return $result;
+    }
+
+    public function update($id,$array)
+    {
+        $this->db->where('id', $id);
+        $this->db->set($array);
+        $this->db->update('user', $array);
+    }
 }
 ?>
