@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>家計簿掲示板Hub</title>
+    <title>HUB</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="<?= base_url('assets/template/assets/img/favicon.ico'); ?>" />
+    <link rel="icon" type="image/x-icon" href="<?= base_url('assets/img/silhouettes.png'); ?>" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -42,7 +42,7 @@
     <header class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
             <!-- Masthead Avatar Image-->
-            <img class="masthead-avatar mb-5" src="<?= base_url('assets/template/assets/img/avataaars.svg'); ?>" alt="" />
+            <img class="masthead-avatar mb-5" src="<?= base_url('assets/img/silhouettes.png'); ?>" alt="" />
             <!-- Masthead Heading-->
             <h1 class="masthead-heading text-uppercase mb-0">家計簿掲示板HUBへようこそ</h1>
             <!-- Icon Divider-->
@@ -83,7 +83,7 @@
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="<?php base_url('assets/template/assets/img/portfolio/cake.png');?>" alt="" />
+                        <img class="img-fluid" src="<?php base_url('assets/template/assets/img/portfolio/cake.png'); ?>" alt="" />
                     </div>
                 </div>
                 <!-- Portfolio Item 3-->
@@ -157,6 +157,13 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Message</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Message" required="required" data-validation-required-message="Please enter a message."></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
                         <br />
                         <div id="success"></div>
                         <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Send</button></div>
@@ -165,39 +172,6 @@
             </div>
         </div>
     </section>
-    <!-- Footer-->
-    <footer class="footer text-center">
-        <div class="container">
-            <div class="row">
-                <!-- Footer Location-->
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h4 class="text-uppercase mb-4">Location</h4>
-                    <p class="lead mb-0">
-                        2215 John Daniel Drive
-                        <br />
-                        Clark, MO 65243
-                    </p>
-                </div>
-                <!-- Footer Social Icons-->
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h4 class="text-uppercase mb-4">Around the Web</h4>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
-                </div>
-                <!-- Footer About Text-->
-                <div class="col-lg-4">
-                    <h4 class="text-uppercase mb-4">About Freelancer</h4>
-                    <p class="lead mb-0">
-                        Freelance is a free to use, MIT licensed Bootstrap theme created by
-                        <a href="http://startbootstrap.com">Start Bootstrap</a>
-                        .
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
     <!-- Copyright Section-->
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>家計簿掲示板HUB © みんなで家計簿、シェアしよう！</small></div>
@@ -261,7 +235,7 @@
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="<?php ('assets/template/assets/img/portfolio/cake.png');?>" alt="" />
+                                <img class="img-fluid rounded mb-5" src="<?php ('assets/template/assets/img/portfolio/cake.png'); ?>" alt="" />
                                 <!-- Portfolio Modal - Text-->
                                 <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                 <button class="btn btn-primary" data-dismiss="modal">
