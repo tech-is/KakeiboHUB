@@ -79,25 +79,26 @@
 			</div>
 		</div><!-- /.container-fluid -->
 	</nav>
+	<!-- サイドバー -->
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<div class="profile-sidebar">
 			<div class="profile-usertitle">
-				<div class="profile-usertitle-name">Username</div>
-				<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+				<div class="profile-usertitle-name"><?= $array[0]['name'] ?></div>
+				<div class="profile-usertitle-status"><span class="indicator label-success"></span><?= $array[0]['mail'] ?></div>
 			</div>
 			<div class="clear"></div>
 		</div>
 		<div class="divider"></div>
 		<ul class="nav menu">
-			<li class="active"><a href="http://localhost/Hub/dashboard/"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
+			<li class="active"><a href="http://localhost/Hub/dashboard?id=15"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
 			<li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> 投稿</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> 履歴</a></li>
 			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> Chat</a></li>
-			<li><a href="http://localhost/Hub/setting/"><em class="fa fa-clone">&nbsp;</em> 設定</a></li>
+			<li><a href="http://localhost/Hub/setting?id=15"><em class="fa fa-clone">&nbsp;</em> 設定</a></li>
 			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> ログアウト</a></li>
 		</ul>
 	</div><!--/.sidebar-->
-	
+	<!-- メインバー -->
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
 			<div class="col-lg-12">
@@ -110,8 +111,8 @@
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-teal panel-widget border-right">
 						<div class="row no-padding"><em class="fa fa-xl fa-shopping-cart color-blue"></em>
-						<div class="large">50,000</div>
-							<div class="text-muted">浪費</div>
+						<div class="large"><?= $array[0]['budget'] ?></div>
+							<div class="text-muted">予算</div>
 						</div>
 					</div>
 				</div>
@@ -126,7 +127,7 @@
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-orange panel-widget border-right">
 						<div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
-						<div class="large">30</div>
+						<div class="large"><?= $array[0]['age'] ?></div>
 							<div class="text-muted">年齢</div>
 						</div>
 					</div>
@@ -134,13 +135,14 @@
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-red panel-widget ">
 						<div class="row no-padding"><em class="fa fa-xl fa-search color-red"></em>
-						<div class="large">愛媛</div>
+						<div class="large"><?= $array[0]['from'] ?></div>
 							<div class="text-muted">地域</div>
 						</div>
 					</div>
 				</div>
 			</div><!--/.row-->
 		</div>
+		<!-- グラフ -->
 		<div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-default">

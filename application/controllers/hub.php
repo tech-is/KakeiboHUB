@@ -82,7 +82,10 @@ class Hub extends CI_Controller
     }
 
     public function dashboard() {
-        $this->load->view('hub_view');
+        $id = $this->input->get('id');
+        $data['array'] = $this->hub_model->update_setting($id);
+        $this->load->helper(array('form', 'url'));
+        $this->load->view('hub_view',$data);
     }
 
     public function add()
@@ -107,23 +110,6 @@ class Hub extends CI_Controller
 		{
             $this->load->view('setting_view');
 		} else {
-
-        // 空の場合エラーメッセージを表示する
-        // if($income == ""){
-        //     $data['error_income'] = [
-        //     "income" => "収入を入力してください"
-        //     ];
-        // }
-        // if($food_cost == ""){
-        //     $data['error_food_cost'] = [
-        //     "food_cost" => "食費を入力してください"
-        //     ];
-        // }
-        // $this->load->model('bbs_model');
-        // // 配列として返ってきた結果を$dataに格納する
-        // $data['array_inf'] = $this->bbs_model->bbs_get();
-        // // $dataを第2引数にいれviewに送る
-        // $this->load->view('bbs_view',$data);
 
         // XSS フィルタリング
         $income = $this->security->xss_clean($income);
@@ -155,9 +141,7 @@ class Hub extends CI_Controller
         $this->load->model('hub_model');
         // hub_modelのhub_addメソッドにアクセスしpost情報を渡す
         $this->hub_model->hub_add($data);
-        // redirect機能を使うためにhelper(url)を呼び出す
-        // $this->load->helper('url');
-        // redirect('http://localhost/Hub/setting/');
+
         header('location: http://localhost/Hub/setting/');
         exit;
         }
@@ -168,55 +152,52 @@ class Hub extends CI_Controller
         $id = $this->input->get('id');
         $data['array'] = $this->hub_model->update_setting($id);
         $this->load->helper(array('form', 'url'));
-        $this->load->view('setting_view');
+        $this->load->view('setting_view',$data);
     }
 
-    // public function update()
-    // {
-    //     $income = $this->input->post('income');
-    //     $food_cost = $this->input->post('food_cost');
-    //     $utility_cost = $this->input->post('utility_cost');
-    //     $rent = $this->input->post('rent');
-    //     $etc = $this->input->post('etc');
-    //     $budget = $this->input->post('budget');
-    //     $name = $this->input->post('name');
-    //     $age = $this->input->post('age');
-    //     $from = $this->input->post('from');
-    //     $job = $this->input->post('job');
-    //     $id = $this->input->post('id',true);
+    public function update()
+    {
+        $income = $this->input->post('income');
+        $food_cost = $this->input->post('food_cost');
+        $utility_cost = $this->input->post('utility_cost');
+        $rent = $this->input->post('rent');
+        $etc = $this->input->post('etc');
+        $budget = $this->input->post('budget');
+        $name = $this->input->post('name');
+        $age = $this->input->post('age');
+        $from = $this->input->post('from');
+        $job = $this->input->post('job');
+        $id = $this->input->post('id',true);
         
-    //     $array = array(
-    //         'income' => $income,
-    //         'food_cost' => $food_cost,
-    //         'utility_cost' => $utility_cost,
-    //         'rent' => $rent,
-    //         'etc' => $etc,
-    //         'budget' => $budget,
-    //         'name' => $name,
-    //         'age' => $age,
-    //         'from' => $from,
-    //         'job' => $job
-    //     );
-    //     if(empty($income) || empty($food_cost) || empty($utility_cost) || empty($rent) || empty($etc) || empty($budget) || empty($name) || empty($age) || empty($from) || empty($job)) {
-    //         $data = [
-    //             'error' => '未入力の箇所がありました',
-    //         ];
-    //         if(!empty($data)) {
-    //             $id = $this->input->post('id');
-    //             $data['array'] = $this->hub_model->update_setting($id);
-    //             $this->load->view('setting_view',$data);
-    //             $this->load->model('hub_model');
-    //             $this->hub_model->update($id,$data);
-    //         }
-    //     }else{
+        $array = array(
+            'income' => $income,
+            'food_cost' => $food_cost,
+            'utility_cost' => $utility_cost,
+            'rent' => $rent,
+            'etc' => $etc,
+            'budget' => $budget,
+            'name' => $name,
+            'age' => $age,
+            'from' => $from,
+            'job' => $job
+        );
 
-    //     $this->load->model('hub_model');
-    //     $this->hub_model->update($id,$array);
-    //     header('location: http://localhost/Hub/setting/');
-    //     exit;
-    //     }
-    // }
-
+        // バリデーション
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+		if (!$this->form_validation->run('hub'))
+		{
+            header("location: http://localhost/Hub/setting?id=$id");
+            exit;
+		} else {
+            $this->load->model('hub_model');
+            $this->hub_model->update($id,$array);
+            $data['array'] = $this->hub_model->update_setting($id);
+            $this->load->view('setting_view',$data);
+            header("location: http://localhost/Hub/setting?id=$id");
+            exit;
+        }
+    }
 }
 
 ?>
