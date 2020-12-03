@@ -50,6 +50,7 @@ class Hublogin extends CI_Controller
             $data = $this->hub_model->get_by_mail($mail);
 
             $_SESSION['user_data'] = $data;
+            $_SESSION['id'] = $data['id'];
             $this->load->view('toppage_view', $data);
         }
     }
