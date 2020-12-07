@@ -90,12 +90,12 @@
 		</div>
 		<div class="divider"></div>
 		<ul class="nav menu">
-			<li class="active"><a href="http://localhost/Hub/dashboard?id=15"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-			<li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> 投稿</a></li>
-			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> 履歴</a></li>
+			<li class="active"><a href="http://localhost/Hub/dashboard"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
+			<li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> Post</a></li>
+			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> History</a></li>
 			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> Chat</a></li>
-			<li><a href="http://localhost/Hub/setting?id=15"><em class="fa fa-clone">&nbsp;</em> 設定</a></li>
-			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> ログアウト</a></li>
+			<li><a href="http://localhost/Hub/setting"><em class="fa fa-clone">&nbsp;</em> Setting</a></li>
+			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
 	</div><!--/.sidebar-->
 	<!-- メインバー -->
@@ -237,7 +237,7 @@
 	<script src="/hub/assets/js/easypiechart-data.js"></script>
 	<script src="/hub/assets/js/bootstrap-datepicker.js"></script>
 	<script src="/hub/assets/js/custom.js"></script>
-	<!-- チャート -->
+	<!-- グラフ -->
 	<script>
 		window.onload = function () {
 			var chart1 = document.getElementById("line-chart").getContext("2d");
