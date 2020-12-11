@@ -43,10 +43,6 @@ class Hub extends CI_Controller
             $mail = $this->input->post('email', true);
             $password = $this->input->post('pass', true);
 
-            //メールの重複チェック
-            //$mailcheck = $this->hub_model->get_by_mail($mail);
-
-
             // post情報を配列に格納
             $data = [
                 'email' => $mail,
