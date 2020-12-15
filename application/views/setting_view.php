@@ -91,12 +91,12 @@
 		</div>
 		<div class="divider"></div>
 		<ul class="nav menu">
-			<li><a href="http://localhost/Hub/dashboard?id=15"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-			<li><a href="#"><em class="fa fa-calendar">&nbsp;</em> 投稿</a></li>
-			<li><a href="#"><em class="fa fa-bar-chart">&nbsp;</em> 履歴</a></li>
+			<li><a href="http://localhost/Hub/dashboard"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
+			<li><a href="#"><em class="fa fa-calendar">&nbsp;</em> Post</a></li>
+			<li><a href="#"><em class="fa fa-bar-chart">&nbsp;</em> History</a></li>
 			<li><a href="#"><em class="fa fa-toggle-off">&nbsp;</em> Chat</a></li>
-			<li class="active"><a href="http://localhost/Hub/setting?id=15"><em class="fa fa-clone">&nbsp;</em> 設定</a></li>
-			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> ログアウト</a></li>
+			<li class="active"><a href="http://localhost/Hub/setting"><em class="fa fa-clone">&nbsp;</em> Setting</a></li>
+			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
 	</div><!--.sidebar -->
 	
@@ -184,7 +184,7 @@
                     <div class="form-row text-right">
                         <div class="col-12">
 							<input type="submit" class="btn btn-primary  btn-lg" value="更新">
-							<input type="hidden" name="id" value="15">
+							<input type="hidden" name="id" value="<?= $array[0]['id'] ?>">
                         </div>
                     </div>
                 </form>
@@ -202,30 +202,3 @@
 	<script src="/hub/assets/js/custom.js"></script>
 </body>
 </html>
-    
-        
-    
-        
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"   crossorigin="anonymous"></script> -->
-    <!-- <script src="js/bootstrap.min.js"></script> -->
-</body>
-</html>
-
-
-        <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="#">ログアウト</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="#">トップページ</a>
-                    <a class="nav-item nav-link" href="#">投稿</a>
-                    <a class="nav-item nav-link" href="#">DM</a>
-                    <a class="nav-item nav-link" href="#">履歴</a>
-                    <a class="nav-item nav-link active" href="http://localhost/Hub/setting/">設定 <span class="sr-only">(current)</span></a>
-                </div>
-            </div>
-        </nav> -->

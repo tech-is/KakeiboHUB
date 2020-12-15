@@ -76,81 +76,25 @@ class Hub extends CI_Controller
             'pass' => $password,
         ];
         $this->load->model('hub_model');
-        $this->hub_model->add($data);
+        $id = $this->hub_model->add($data);
+        $_SESSION['id'] = $id;
         $this->load->helper('phpmailer');
         phpmailer_send($mail, $password, $url);
         $this->load->view('hubsuccess_view');
     }
 
     public function dashboard() {
-        $id = $this->input->get('id');
+        //$id = $this->input->get('id');
+        $id = $_SESSION['id'];
         $data['array'] = $this->hub_model->update_setting($id);
         $this->load->helper(array('form', 'url'));
         $this->load->view('hub_view',$data);
     }
 
-    public function add()
-    {
-        // postの受け取り!
-        $income = $this->input->post('income');
-        $food_cost = $this->input->post('food_cost');
-        $utility_cost = $this->input->post('utility_cost');
-        $rent = $this->input->post('rent');
-        $etc = $this->input->post('etc');
-        $budget = $this->input->post('budget');
-        $name = $this->input->post('name');
-        $age = $this->input->post('age');
-        $from = $this->input->post('from');
-        $job = $this->input->post('job');
-
-        // バリデーション
-        $this->load->helper(array('form', 'url'));
-        $this->load->library('form_validation');
-
-		if ($this->form_validation->run('hub') == FALSE)
-		{
-            $this->load->view('setting_view');
-		} else {
-
-        // XSS フィルタリング
-        $income = $this->security->xss_clean($income);
-        $food_cost = $this->security->xss_clean($food_cost);
-        $utility_cost = $this->security->xss_clean($utility_cost);
-        $rent = $this->security->xss_clean($rent);
-        $etc = $this->security->xss_clean($etc);
-        $budget = $this->security->xss_clean($budget);
-        $name = $this->security->xss_clean($name);
-        $age = $this->security->xss_clean($age);
-        $from = $this->security->xss_clean($from);
-        $job = $this->security->xss_clean($job);
-
-        // post情報を配列に格納
-        $data = [
-        'income' => $income,
-        'food_cost' => $food_cost,
-        'utility_cost' => $utility_cost,
-        'rent' => $rent,
-        'etc' => $etc,
-        'budget' => $budget,
-        'name' => $name,
-        'age' => $age,
-        'from' => $from,
-        'job' => $job
-        ];
-
-        // Modelsディレクトリーのhub_modelにアクセス
-        $this->load->model('hub_model');
-        // hub_modelのhub_addメソッドにアクセスしpost情報を渡す
-        $this->hub_model->hub_add($data);
-
-        header('location: http://localhost/Hub/setting/');
-        exit;
-        }
-    }
-
     public function setting()
     {
-        $id = $this->input->get('id');
+        //$id = $this->input->get('id');
+        $id = $_SESSION['id'];
         $data['array'] = $this->hub_model->update_setting($id);
         $this->load->helper(array('form', 'url'));
         $this->load->view('setting_view',$data);
@@ -188,14 +132,14 @@ class Hub extends CI_Controller
         $this->load->library('form_validation');
 		if (!$this->form_validation->run('hub'))
 		{
-            header("location: http://localhost/Hub/setting?id=$id");
+            header("location: http://localhost/Hub/setting");
             exit;
 		} else {
             $this->load->model('hub_model');
             $this->hub_model->update($id,$array);
             $data['array'] = $this->hub_model->update_setting($id);
             $this->load->view('setting_view',$data);
-            header("location: http://localhost/Hub/setting?id=$id");
+            header("location: http://localhost/Hub/setting");
             exit;
         }
     }

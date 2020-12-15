@@ -14,6 +14,7 @@ class Hub_model extends CI_Model
     public function add($data)
     {
         $this->db->insert('user', $data);
+        return $this->db->insert_id();
     }
 
     //重複確認
@@ -33,34 +34,20 @@ class Hub_model extends CI_Model
             ->update('user', ['pass' => $password]);
     }
 
-    // 配列に入れた情報をDBに格納する
-    public function hub_add($data)
-    {
-        $this->db->insert('user',$data);
-    }
-
-    // public function dashboard_get()
-    // {
-    //     $query = $this->db->select('id,mail,name, budget, name, from');
-    //     $query = $this->db->get('member');
-    //     $result = $query->result('array');
-    //     return $result;
-    // }
-
+    // 設定画面dbから取得
     public function update_setting($id)
     {
         // $query = $this->db->where('id', $id);
-        // $query = $this->db->select('id,income,food_cost,utility_cost,rent,etc, budget, name, age,from,job');
         $query = $this->db->get_where('user', array('id' => $id));
-        // $result = $query->result('array');
+        // $result = $query->result('array');↓
         $result = $query->result_array();
         return $result;
     }
 
+    // 設定画面db変更
     public function update($id,$array)
     {
         $this->db->where('id', $id);
-        $this->db->select('id,income,food_cost,utility_cost,rent,etc, budget, name, age,from,job');
         $this->db->set($array);
         $this->db->update('user', $array);
     }
