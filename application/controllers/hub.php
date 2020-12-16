@@ -16,6 +16,7 @@ class Hub extends CI_Controller
     public function index()
     {
         $data = null;
+        
         //セッション破棄
         if (!empty($_SESSION['user_data'])) {
             $data['email'] = $_SESSION['user_data']['email'];
