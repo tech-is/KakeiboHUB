@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hub</title>
     <link rel="stylesheet" href="<?= base_url('assets/css/hub.css'); ?>" type="text/css">
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="<?= base_url('assets/img/silhouettes.png'); ?>" />
 </head>
 
 <body>

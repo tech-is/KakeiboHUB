@@ -94,9 +94,9 @@
 			<li><a href="http://localhost/Hub/dashboard"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
 			<li><a href="#"><em class="fa fa-calendar">&nbsp;</em> Post</a></li>
 			<li><a href="#"><em class="fa fa-bar-chart">&nbsp;</em> History</a></li>
-			<li><a href="#"><em class="fa fa-toggle-off">&nbsp;</em> Chat</a></li>
+			<li><a href="http://localhost/Hub/chat"><em class="fa fa-toggle-off">&nbsp;</em> Chat</a></li>
 			<li class="active"><a href="http://localhost/Hub/setting"><em class="fa fa-clone">&nbsp;</em> Setting</a></li>
-			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+			<li><a href="http://localhost/Hub/logout"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
 	</div><!--.sidebar -->
 	

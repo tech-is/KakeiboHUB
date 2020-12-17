@@ -90,10 +90,10 @@
 		</div>
 		<div class="divider"></div>
 		<ul class="nav menu">
-			<li class="active"><a href="http://localhost/Hub/dashboard"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
+			<li><a href="http://localhost/Hub/dashboard"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
 			<li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> Post</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> History</a></li>
-			<li><a href="http://localhost/Hub/chat"><em class="fa fa-toggle-off">&nbsp;</em> Chat</a></li>
+			<li class="active"><a href="http://localhost/Hub/chat"><em class="fa fa-toggle-off">&nbsp;</em> Chat</a></li>
 			<li><a href="http://localhost/Hub/setting"><em class="fa fa-clone">&nbsp;</em> Setting</a></li>
 			<li><a href="http://localhost/Hub/logout"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
@@ -102,132 +102,63 @@
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Dashboard</h1>
+				<h1 class="page-header">Chat</h1>
 			</div>
 		</div><!--/.row-->
 		
-		<div class="panel panel-container">
-			<div class="row">
-				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-teal panel-widget border-right">
-						<div class="row no-padding"><em class="fa fa-xl fa-shopping-cart color-blue"></em>
-						<div class="large"><?= $array[0]['budget'] ?></div>
-							<div class="text-muted">予算</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-blue panel-widget border-right">
-						<div class="row no-padding"><em class="fa fa-xl fa-comments color-orange"></em>
-						<div class="large">1</div>
-							<div class="text-muted">チャット人数</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-orange panel-widget border-right">
-						<div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
-						<div class="large"><?= $array[0]['age'] ?></div>
-							<div class="text-muted">年齢</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-					<div class="panel panel-red panel-widget ">
-						<div class="row no-padding"><em class="fa fa-xl fa-search color-red"></em>
-						<div class="large"><?= $array[0]['from'] ?></div>
-							<div class="text-muted">地域</div>
-						</div>
-					</div>
-				</div>
-			</div><!--/.row-->
-		</div>
-		<!-- グラフ -->
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">
-						Site Traffic Overview
-						<ul class="pull-right panel-settings panel-button-tab-right">
-							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-								<em class="fa fa-cogs"></em>
-							</a>
-							<ul class="dropdown-menu dropdown-menu-right">
-									<li>
-										<ul class="dropdown-settings">
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 1
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 2
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 3
-											</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
+					<div class="panel-heading">趣旨</div>
 					<div class="panel-body">
-						<div class="canvas-wrapper">
-							<canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>
+						<div class="col-md-12">
+							<p>家計簿を書く上での皆さんが心掛けていることや、共有したいことをご自由にお書きください！</p>
 						</div>
 					</div>
+				</div><!-- /.panel-->
+		</div><!-- /.row -->
+
+		<div class="col-lg-12">
+			<div class="panel panel-default chat">
+				<div class="panel-heading">
+					Chat
+					<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
 				</div>
-			</div>
-		</div><!--/.row-->
-		
-		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-default ">
-					<div class="panel-heading">
-						Timeline
-						<ul class="pull-right panel-settings panel-button-tab-right">
-							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-								<em class="fa fa-cogs"></em>
-							</a>
-							<ul class="dropdown-menu dropdown-menu-right">
-									<li>
-										<ul class="dropdown-settings">
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 1
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 2
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 3
-											</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
-						<div class="panel-body timeline-container">
-						<ul class="timeline">
-							<li>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h4 class="timeline-title">ハリーポッター 愛媛</h4>
-									</div>
-									<div class="timeline-body">
-										<p>ゴルフ　¥20000</p>
-									</div>
-								</div>
-							</li>
-						</ul>
+				<div class="panel-body">
+					<ul>
+					<?php $num = count($array_inf); ?>
+					<?php for( $i=0 ; $i<$num ; $i++ ) { ?>
+						<li class="right clearfix"><span class="chat-img pull-right">
+							</span>
+							<div class="chat-body clearfix">
+								<div class="header"><strong class="pull-left primary-font">
+									<?= $array_inf[$i]['chat_name'] ?>
+								</strong> <small class="text-muted">
+									<?= $array_inf[$i]['created_at'] ?>
+								</small></div>
+								<p><?= $array_inf[$i]['message'] ?></p>
+							</div>
+						</li>
+					<?php } ?>
+					</ul>
+				</div>
+				<form method="post" action="http://localhost/Hub/chat_add">
+				<input type="hidden" name="user_id" value="<?= $array[0]['id'] ?>">
+				<input type="hidden" name="chat_name" value="<?= $array[0]['name'] ?>">
+					<div class="panel-footer">
+						<div class="input-group">
+							<input id="message" name="message" type="text" class="form-control input-md" placeholder="Type your message here..." /><span class="input-group-btn">
+								<button class="btn btn-primary btn-md" id="btn-chat">Send</button>
+						</span></div>
+						<!-- 空の場合errorメッセージを出力する -->
+						<?php if(isset($error_message["message"])){ ?>
+						<p class="error_message"><?= $error_message["message"]; ?></p>
+						<?php } ?>
 					</div>
-				</div>
-			</div><!--/.col-->
-		</div><!--/.row-->
-	</div>	<!--/.main-->
+				</form>
+			</div>
+		</div><!-- /.row -->
+	</div><!--/.main-->
 	
 	<script src="/hub/assets/js/jquery-1.11.1.min.js"></script>
 	<script src="/hub/assets/js/bootstrap.min.js"></script>

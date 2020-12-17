@@ -44,10 +44,6 @@ class Hub extends CI_Controller
             $mail = $this->input->post('email', true);
             $password = $this->input->post('pass', true);
 
-            //メールの重複チェック
-            //$mailcheck = $this->hub_model->get_by_mail($mail);
-
-
             // post情報を配列に格納
             $data = [
                 'email' => $mail,
@@ -89,6 +85,45 @@ class Hub extends CI_Controller
         $data['array'] = $this->hub_model->update_setting($id);
         $this->load->helper(array('form', 'url'));
         $this->load->view('hub_view',$data);
+    }
+
+    public function chat() {
+        $id = $_SESSION['id'];
+        $data['array'] = $this->hub_model->update_setting($id);
+        $data['array_inf'] = $this->hub_model->chat_get();
+        $this->load->helper(array('form', 'url'));
+        $this->load->view('chat_view',$data);
+    }
+
+    public function chat_add()
+    {
+    // postの受け取り
+    $user_id = $this->input->post('user_id');
+    $chat_name = $this->input->post('chat_name');
+    $message = $this->input->post('message');
+    // 空の場合エラーメッセージを表示する
+    if($message == ""){
+        if($message == ""){
+            $data['error_message'] = [
+            "message" => "メッセージを入力してください！"
+            ];
+        }
+    }
+    // XSS フィルタリング
+    $user_id = $this->security->xss_clean($user_id);
+    $chat_name = $this->security->xss_clean($chat_name);
+    $message = $this->security->xss_clean($message);
+    // post情報を配列に格納
+    $data = [
+    'user_id' => $user_id,
+    'chat_name' => $chat_name,
+    'message' => $message
+    ];
+    // bbs_modelのbbs_addメソッドにアクセスしpost情報を渡す
+    $this->hub_model->chat_add($data);
+    $this->load->view('Chat_view',$data);
+    header("location: http://localhost/Hub/chat");
+    exit;
     }
 
     public function setting()
@@ -142,6 +177,15 @@ class Hub extends CI_Controller
             header("location: http://localhost/Hub/setting");
             exit;
         }
+    }
+
+    public function logout()
+    {
+        if (!empty($_SESSION['user_data'])) {
+            session_destroy();
+        }
+        header('location: http://localhost/hub/hublogin');
+        exit();
     }
 }
 
