@@ -5,11 +5,13 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>家計簿掲示板Hub</title>
+		<!-- Favicon-->
+		<link rel="icon" type="image/x-icon" href="<?= base_url('/KakeiboHUB/assets/img/silhouettes.png'); ?>" />
 		<!-- BootstrapのCSS読み込み -->
-		<link href="/hub/assets/css/bootstrap.min.css" rel="stylesheet"> -->
-		<link href="/hub/assets/css/font-awesome.min.css" rel="stylesheet">
-		<link href="/hub/assets/css/datepicker3.css" rel="stylesheet">
-		<link href="/hub/assets/css/styles.css" rel="stylesheet">
+		<link href="/KakeiboHUB/assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/KakeiboHUB/assets/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/KakeiboHUB/assets/css/datepicker3.css" rel="stylesheet">
+		<link href="/KakeiboHUB/assets/css/styles.css" rel="stylesheet">
 		<!--Custom Font-->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 	</head>
@@ -90,12 +92,12 @@
 		</div>
 		<div class="divider"></div>
 		<ul class="nav menu">
-			<li><a href="http://localhost/Hub/dashboard"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
+			<li><a href="http://localhost/KakeiboHUB/hub/dashboard/"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
 			<li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> Post</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> History</a></li>
-			<li class="active"><a href="http://localhost/Hub/chat"><em class="fa fa-toggle-off">&nbsp;</em> Chat</a></li>
-			<li><a href="http://localhost/Hub/setting"><em class="fa fa-clone">&nbsp;</em> Setting</a></li>
-			<li><a href="http://localhost/Hub/logout"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+			<li class="active"><a href="http://localhost/KakeiboHUB/hub/chat"><em class="fa fa-toggle-off">&nbsp;</em> Chat</a></li>
+			<li><a href="http://localhost/KakeiboHUB/hub/setting"><em class="fa fa-clone">&nbsp;</em> Setting</a></li>
+			<li><a href="http://localhost/KakeiboHUB/hub/logout"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
 	</div><!--/.sidebar-->
 	<!-- メインバー -->
@@ -160,14 +162,14 @@
 		</div><!-- /.row -->
 	</div><!--/.main-->
 	
-	<script src="/hub/assets/js/jquery-1.11.1.min.js"></script>
-	<script src="/hub/assets/js/bootstrap.min.js"></script>
-	<script src="/hub/assets/js/chart.min.js"></script>
-	<script src="/hub/assets/js/chart-data.js"></script>
-	<script src="/hub/assets/js/easypiechart.js"></script>
-	<script src="/hub/assets/js/easypiechart-data.js"></script>
-	<script src="/hub/assets/js/bootstrap-datepicker.js"></script>
-	<script src="/hub/assets/js/custom.js"></script>
+	<script src="/KakeiboHUB/assets/js/jquery-1.11.1.min.js"></script>
+	<script src="/KakeiboHUB/assets/js/bootstrap.min.js"></script>
+	<script src="/KakeiboHUB/assets/js/chart.min.js"></script>
+	<script src="/KakeiboHUB/assets/js/chart-data.js"></script>
+	<script src="/KakeiboHUB/assets/js/easypiechart.js"></script>
+	<script src="/KakeiboHUB/assets/js/easypiechart-data.js"></script>
+	<script src="/KakeiboHUB/assets/js/bootstrap-datepicker.js"></script>
+	<script src="/KakeiboHUB/assets/js/custom.js"></script>
 	<!-- グラフ -->
 	<script>
 		window.onload = function () {

@@ -122,7 +122,7 @@ class Hub extends CI_Controller
     // bbs_modelのbbs_addメソッドにアクセスしpost情報を渡す
     $this->hub_model->chat_add($data);
     $this->load->view('Chat_view',$data);
-    header("location: http://localhost/Hub/chat");
+    header("location: http://localhost/KakeiboHUB/hub/chat");
     exit;
     }
 
@@ -167,14 +167,14 @@ class Hub extends CI_Controller
         $this->load->library('form_validation');
 		if (!$this->form_validation->run('hub'))
 		{
-            header("location: http://localhost/Hub/setting");
+            header("location: http://localhost/KakeiboHUB/hub/setting");
             exit;
 		} else {
             $this->load->model('hub_model');
             $this->hub_model->update($id,$array);
             $data['array'] = $this->hub_model->update_setting($id);
             $this->load->view('setting_view',$data);
-            header("location: http://localhost/Hub/setting");
+            header("location: http://localhost/KakeiboHUB/hub/setting");
             exit;
         }
     }
@@ -184,7 +184,7 @@ class Hub extends CI_Controller
         if (!empty($_SESSION['user_data'])) {
             session_destroy();
         }
-        header('location: http://localhost/hub/hublogin');
+        header('location: http://localhost/KakeiboHUB/hublogin');
         exit();
     }
 }
