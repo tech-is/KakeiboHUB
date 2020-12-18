@@ -16,11 +16,11 @@ function phpmailer_send($email, $pass, $url)
     try {
         //Gmail 認証情報
         $host = 'smtp.gmail.com';
-        $username = 'takahumip7@gmail.com';
-        $password = 'Takahumi14';
+        $username = 'takashi.sogo6253@gmail.com';
+        $password = 'Takashi6253';
 
         //差出人
-        $from = 'takahumip7@gmail.com';
+        $from = 'takashi.sogo6253@gmail.com';
         $fromname = '管理人';
 
         //件名・本文

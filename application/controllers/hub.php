@@ -143,6 +143,10 @@ class Hub extends CI_Controller
             exit;
         }
     }
+    public function history()
+    {
+        $this->load->view('history_view.php');
+    }
 }
 
 ?>
