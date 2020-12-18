@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>再設定完了</title>
     <link rel="stylesheet" href="<?= base_url('assets/css/hub.css'); ?>" type="text/css">
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="<?= base_url('assets/img/silhouettes.png'); ?>" />
 </head>
 <body>
 <h1>家計簿掲示板Hub</h1>

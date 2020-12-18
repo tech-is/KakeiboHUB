@@ -53,7 +53,7 @@ class Hublogin extends CI_Controller
             $_SESSION['id'] = $data['id'];
             
             // $this->load->view('toppage_view', $data);
-            header('location: http://localhost/Hub/dashboard/');
+            header('location: http://localhost/KakeiboHUB/hub/dashboard/');
             exit;
         }
     }

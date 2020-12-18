@@ -51,5 +51,27 @@ class Hub_model extends CI_Model
         $this->db->set($array);
         $this->db->update('user', $array);
     }
+
+    // チャットへ格納
+    public function chat_add($data)
+    {
+    $this->db->insert('chat',$data);
+    }
+
+    // チャットデータ取り出す
+    public function chat_get()
+    {
+    // idの降順に要素を取り出す
+    $query = $this->db->order_by('chat_id','DESC');
+    // delete_flagが0のもののみを取り出す
+    $query = $this->db->where('delete_flag',0);
+    // table名chatから取得
+    $query = $this->db->get('chat');
+    // 結果を配列として返す
+    $result = $query->result('array');
+    return $result;
+    }
+
 }
+
 ?>
