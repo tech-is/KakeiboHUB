@@ -17,7 +17,12 @@ class Hub_model extends CI_Model
         return $this->db->insert_id();
     }
 
-    //重複確認
+    // mail password 確認
+    public function get_login($mail, $password)
+    {
+        $query = $this->db->get_where('user', array('mail' => $mail, 'pass' => $password));
+        return $query->row_array();
+    }
 
     //メールアドレスが登録されているか
     public function get_by_mail($mail)

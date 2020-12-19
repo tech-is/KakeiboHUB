@@ -7,6 +7,7 @@ class Hublogin extends CI_Controller
         // CI_Model constructor の呼び出し
         parent::__construct();
         $this->load->library('session');
+        $this->load->model('hub_model');
         date_default_timezone_set('Asia/Tokyo');
     }
 
@@ -39,22 +40,31 @@ class Hublogin extends CI_Controller
             // postの受け取り
             $mail = $this->input->post('email', true);
             $password = $this->input->post('pass', true);
-            // post情報を配列に格納
-            $data = [
-                'email' => $mail,
-                'pass' => $password,
-            ];
 
-            // Modelsディレクトリーの_modelにアクセス
-            $this->load->model('hub_model');
-            $data = $this->hub_model->get_by_mail($mail);
+            if($this->hub_model->get_login($mail, $password))
+                {
+                // post情報を配列に格納
+                $data = [
+                    'email' => $mail,
+                    'pass' => $password,
+                ];
 
-            $_SESSION['user_data'] = $data;
-            $_SESSION['id'] = $data['id'];
-            
-            // $this->load->view('toppage_view', $data);
-            header('location: http://localhost/KakeiboHUB/hub/dashboard/');
-            exit;
+                // Modelsディレクトリーの_modelにアクセス
+                $this->load->model('hub_model');
+                $data = $this->hub_model->get_by_mail($mail);
+
+                $_SESSION['user_data'] = $data;
+                $_SESSION['id'] = $data['id'];
+                
+                // $this->load->view('toppage_view', $data);
+                header('location: http://localhost/KakeiboHUB/hub/dashboard/');
+                exit;
+            } else {
+                $data = [
+                    'error' => 'メールアドレスかパスワードが違います',
+                ];
+                $this->load->view('hublogin_view',$data);
+            }
         }
     }
 }
