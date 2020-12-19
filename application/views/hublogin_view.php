@@ -9,6 +9,9 @@
 </head>
 <h1>家計簿掲示板Hub</h1>
 <h2>ログイン</h2>
+<?php if(!empty($error)) { ?>
+        <?php echo $error; ?>
+<?php } ?>
 <?php echo validation_errors(); ?>
 <?php echo form_open(); ?>
 <fieldset>
