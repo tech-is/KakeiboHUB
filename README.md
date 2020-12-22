@@ -4,6 +4,9 @@
 登録簡単、面倒知らずな家計簿！
 そして、世界中の人々と家計簿をシェアする事ができる掲示板です！！
 
+KakeiboHUBトップページ
+![image](https://user-images.githubusercontent.com/72800775/102907246-21b3c480-44b9-11eb-9782-117ef672f7b7.png)
+
 ## ダウンロード方法
 GitHubからダウンロードするか、```git clone```してください。
 
