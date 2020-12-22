@@ -140,6 +140,7 @@ class Hub extends CI_Controller
         $income = $this->input->post('income');
         $food_cost = $this->input->post('food_cost');
         $utility_cost = $this->input->post('utility_cost');
+
         $rent = $this->input->post('rent');
         $etc = $this->input->post('etc');
         $budget = $this->input->post('budget');
@@ -182,7 +183,12 @@ class Hub extends CI_Controller
     {
         $this->load->view('history_view.php');
     }
-    
+
+    public function Post()
+    {
+        $this->load->view('pay_view.php');
+    }
+
     public function logout()
     {
         if (!empty($_SESSION['user_data'])) {

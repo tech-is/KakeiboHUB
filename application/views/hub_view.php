@@ -93,8 +93,8 @@
 		<div class="divider"></div>
 		<ul class="nav menu">
 			<li class="active"><a href="http://localhost/KakeiboHUB/hub/dashboard/"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-			<li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> Post</a></li>
-			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> History</a></li>
+			<li><a href="http://localhost/KakeiboHUB/hub/post"><em class="fa fa-calendar">&nbsp;</em> Post</a></li>
+			<li><a href="http://localhost/KakeiboHUB/hub/history"><em class="fa fa-bar-chart">&nbsp;</em> History</a></li>
 			<li><a href="http://localhost/KakeiboHUB/hub/chat"><em class="fa fa-toggle-off">&nbsp;</em> Chat</a></li>
 			<li><a href="http://localhost/KakeiboHUB/hub/setting"><em class="fa fa-clone">&nbsp;</em> Setting</a></li>
 			<li><a href="http://localhost/KakeiboHUB/hub/logout"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
