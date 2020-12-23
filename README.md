@@ -7,6 +7,9 @@
 KakeiboHUBトップページ
 ![image](https://user-images.githubusercontent.com/72800775/102907246-21b3c480-44b9-11eb-9782-117ef672f7b7.png)
 
+KakeiboHUBマイページ
+![image](https://user-images.githubusercontent.com/72800775/102944583-8e9d7d80-44fe-11eb-8866-c99634cb6494.png)
+
 ## ダウンロード方法
 GitHubからダウンロードするか、```git clone```してください。
 
