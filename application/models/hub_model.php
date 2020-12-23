@@ -77,6 +77,12 @@ class Hub_model extends CI_Model
     return $result;
     }
 
+    // 配列に入れた情報をDBに格納する
+    public function hub_add($data)
+    {
+        $this->db->insert('pay',$data);
+    }
+
 }
 
 ?>
