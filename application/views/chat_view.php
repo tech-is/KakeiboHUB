@@ -144,7 +144,7 @@
 					<?php } ?>
 					</ul>
 				</div>
-				<form method="post" action="http://localhost/Hub/chat_add">
+				<form method="post" action="http://localhost/KakeiboHub/Hub/chat_add">
 				<input type="hidden" name="user_id" value="<?= $array[0]['id'] ?>">
 				<input type="hidden" name="chat_name" value="<?= $array[0]['name'] ?>">
 					<div class="panel-footer">

@@ -179,6 +179,7 @@ class Hub extends CI_Controller
             exit;
         }
     }
+
     public function history()
     {
         $this->load->view('history_view.php');
@@ -187,6 +188,33 @@ class Hub extends CI_Controller
     public function Post()
     {
         $this->load->view('pay_view.php');
+    }
+
+    public function add() 
+    {
+        $this->load->helper('url');
+        // postの受け取り
+        $cost = $this->input->post('cost');
+        $private_cost = $this->input->post('private_cost');
+        // XSS フィルタリング
+    $user_id = $this->security->xss_clean($user_id);
+    $chat_name = $this->security->xss_clean($chat_name);
+    $message = $this->security->xss_clean($message);
+        // post情報を配列に格納
+        $data= [
+            'cost'         => $cost,
+            'private_cost' => $private_cost,
+            'created_at'   => date('Y-m-d H:i:s')
+        ];
+
+        // Modelsディレクトリーのbbs_modelにアクセス
+        $this->load->model('hub_model');
+        // bbs_modelのbbs_addメソッドにアクセスしpost情報を渡す
+        $this->hub_model->hub_add($data);
+        // redirect機能を使うためにhelper(url)を呼び出す
+
+        redirect('http://localhost/KakeiboHUB/hub/post');
+
     }
 
     public function logout()
