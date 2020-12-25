@@ -6,10 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>家計簿掲示板Hub</title>
 		<!-- BootstrapのCSS読み込み -->
-		<link href="/hub/assets/css/bootstrap.min.css" rel="stylesheet"> -->
-		<link href="/hub/assets/css/font-awesome.min.css" rel="stylesheet">
-		<link href="/hub/assets/css/datepicker3.css" rel="stylesheet">
-		<link href="/hub/assets/css/styles.css" rel="stylesheet">
+		<link href="/kakeibohub/assets/css/bootstrap.min.css" rel="stylesheet"> -->
+		<link href="/kakeibohub/assets/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/kakeibohub/assets/css/datepicker3.css" rel="stylesheet">
+		<link href="/kakeibohub/assets/css/styles.css" rel="stylesheet">
 		<!--Custom Font-->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 	</head>
@@ -83,19 +83,19 @@
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<div class="profile-sidebar">
 			<div class="profile-usertitle">
-				<div class="profile-usertitle-name"></div>
-				<div class="profile-usertitle-status"><span class="indicator label-success"></span></div>
+				<div class="profile-usertitle-name"><?= $array[0]['name'] ?></div>
+				<div class="profile-usertitle-status"><span class="indicator label-success"></span><?= $array[0]['mail'] ?></div>
 			</div>
 			<div class="clear"></div>
 		</div>
 		<div class="divider"></div>
 		<ul class="nav menu">
-			<li><a href="http://localhost/Hub/dashboard?id=15"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-			<li><a href="http://localhost/hub/"><em class="fa fa-calendar">&nbsp;</em> Post</a></li>
-			<li class="active"><a href="http://localhost/HUB/index.php/HUB/history"><em class="fa fa-bar-chart">&nbsp;</em> history</a></li>
-			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> Chat</a></li>
-			<li><a href="http://localhost/Hub/setting?id=15"><em class="fa fa-clone">&nbsp;</em> 設定</a></li>
-			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> ログアウト</a></li>
+		<li><a href="http://localhost/KakeiboHUB/hub/dashboard/"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
+			<li><a href="http://localhost/KakeiboHUB/hub/pay"><em class="fa fa-calendar">&nbsp;</em> Post</a></li>
+			<li class="active"><a href="http://localhost/KakeiboHUB/hub/history"><em class="fa fa-bar-chart">&nbsp;</em> History</a></li>
+			<li><a href="http://localhost/KakeiboHUB/hub/chat"><em class="fa fa-toggle-off">&nbsp;</em> Chat</a></li>
+			<li><a href="http://localhost/KakeiboHUB/hub/setting"><em class="fa fa-clone">&nbsp;</em> Setting</a></li>
+			<li><a href="http://localhost/KakeiboHUB/hub/logout"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
 	</div><!--/.sidebar-->
 	<!-- メインバー -->
@@ -109,64 +109,36 @@
 		<div class="panel panel-container">
 			<div class="row">
         <div class="col-md-12">
-          <form action="http://localhost/HUB/index.php/hub/add" method="POST">
-            <label for="request-month">投稿時期</label>
-            <input type="month" name="request_month" id="request-month">
-            <button type="submit" class="btn btn-primary btn-lg">Search</button>
-          </form>
+			<label for="request-month">投稿時期</label>
+			<input type="month" name="request_month" id="request-month">
+			<button type="submit" class="btn btn-primary btn-lg">Search</button>
         </div>
 			</div><!--/.row-->
 		</div>
-		<!-- グラフ -->
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">
-						Site Traffic Overview
-						<ul class="pull-right panel-settings panel-button-tab-right">
-							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-								<em class="fa fa-cogs"></em>
-							</a>
-							<ul class="dropdown-menu dropdown-menu-right">
-									<li>
-										<ul class="dropdown-settings">
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 1
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 2
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 3
-											</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
-					<div class="panel-body">
-						<div class="canvas-wrapper">
-							<canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>
-						</div>
-					</div>
+			</div><!-- /.panel-->
+		</div><!-- /.row -->
+
+		<div class="col-lg-12">
+			<div class="panel panel-default chat">
+				<div class="panel-heading">
+					history
+					<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
 				</div>
-			</div>
-		</div><!--/.row-->
-		
+			<div class="panel-body">
 	
 	</div>	<!--/.main-->
 	
-	<script src="/hub/assets/js/jquery-1.11.1.min.js"></script>
-	<script src="/hub/assets/js/bootstrap.min.js"></script>
-	<script src="/hub/assets/js/chart.min.js"></script>
-	<script src="/hub/assets/js/chart-data.js"></script>
-	<script src="/hub/assets/js/easypiechart.js"></script>
-	<script src="/hub/assets/js/easypiechart-data.js"></script>
-	<script src="/hub/assets/js/bootstrap-datepicker.js"></script>
-	<script src="/hub/assets/js/custom.js"></script>
+	<script src="/kakeibohub/assets/js/jquery-1.11.1.min.js"></script>
+	<script src="/kakeibohub/assets/js/bootstrap.min.js"></script>
+	<script src="/kakeibohub/assets/js/chart.min.js"></script>
+	<script src="/kakeibohub/assets/js/chart-data.js"></script>
+	<script src="/kakeibohub/assets/js/easypiechart.js"></script>
+	<script src="/kakeibohub/assets/js/easypiechart-data.js"></script>
+	<script src="/kakeibohub/assets/js/bootstrap-datepicker.js"></script>
+	<script src="/kakeibohub/assets/js/custom.js"></script>
 	<!-- チャート -->
 	<script>
 		window.onload = function () {

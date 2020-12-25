@@ -12,7 +12,7 @@ class Hub extends CI_Controller
         $this->load->model('hub_model');
         date_default_timezone_set('Asia/Tokyo');
     }
-
+    
     public function index()
     {
         $data = null;
@@ -24,10 +24,10 @@ class Hub extends CI_Controller
             $_SESSION = array();
             session_destroy();
         }
-
+        
         //ヘルパー呼び出し
         $this->load->helper(array('form', 'url'));
-
+        
         //ライブラリ呼び出し
         $this->load->library('form_validation');
 
@@ -78,13 +78,54 @@ class Hub extends CI_Controller
         phpmailer_send($mail, $password, $url);
         $this->load->view('hubsuccess_view');
     }
-
+    
     public function dashboard() {
         //$id = $this->input->get('id');
         $id = $_SESSION['id'];
         $data['array'] = $this->hub_model->update_setting($id);
         $this->load->helper(array('form', 'url'));
         $this->load->view('hub_view',$data);
+    }
+    
+    public function pay()
+    {
+        $id = $_SESSION['id'];
+        $data['array'] = $this->hub_model->update_setting($id);
+        $this->load->helper(array('form', 'url'));
+        $this->load->view('pay_view',$data);
+    }
+    
+    public function pay_add() 
+    {
+        $this->load->helper('url');
+        // postの受け取り
+        $pay_id = $this->input->post('pay_id');
+        $cost = $this->input->post('cost');
+        $private_cost = $this->input->post('private_cost');
+        // XSS フィルタリング
+        $pay_id = $this->security->xss_clean($pay_id);
+        $cost = $this->security->xss_clean($cost);
+        $private_cost = $this->security->xss_clean($private_cost);
+        // post情報を配列に格納
+        $data= [
+            'pay_id'       => $pay_id,
+            'cost'         => $cost,
+            'private_cost' => $private_cost
+            // 'created_at'   => date('Y-m-d H:i:s')
+        ];
+        // bbs_modelのbbs_addメソッドにアクセスしpost情報を渡す
+        $this->hub_model->pay_add($data);
+        $this->load->view('pay_view',$data);
+        header("location: http://localhost/KakeiboHUB/hub/pay");
+        exit;
+    }
+    
+    public function history()
+    {
+        $id = $_SESSION['id'];
+        $data['array'] = $this->hub_model->update_setting($id);
+        $this->load->helper(array('form', 'url'));
+        $this->load->view('history_view',$data);
     }
 
     public function chat() {
@@ -178,11 +219,7 @@ class Hub extends CI_Controller
             exit;
         }
     }
-    public function history()
-    {
-        $this->load->view('history_view.php');
-    }
-    
+
     public function logout()
     {
         if (!empty($_SESSION['user_data'])) {
