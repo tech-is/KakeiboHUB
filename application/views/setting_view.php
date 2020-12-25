@@ -109,7 +109,7 @@
 		</div><!--/.row-->
 		<div class="row">
             <div class="col-md-12">
-                <form data-toggle="validator" role="form" method="post" action="http://localhost/Hub/update/">
+                <form data-toggle="validator" role="form" method="post" action="http://localhost/KakeiboHUB/Hub/update/">
                     <!-- <?php echo validation_errors(); ?> -->
                     <div class="form-group row">
                         <article class="form-group col-md-6">
