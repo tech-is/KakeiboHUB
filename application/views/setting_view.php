@@ -93,8 +93,8 @@
 		<div class="divider"></div>
 		<ul class="nav menu">
 			<li><a href="http://localhost/KakeiboHUB/hub/dashboard/"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-			<li><a href="#"><em class="fa fa-calendar">&nbsp;</em> Post</a></li>
-			<li><a href="#"><em class="fa fa-bar-chart">&nbsp;</em> History</a></li>
+			<li><a href="http://localhost/KakeiboHUB/hub/post"><em class="fa fa-calendar">&nbsp;</em> Post</a></li>
+			<li><a href="http://localhost/KakeiboHUB/hub/history"><em class="fa fa-bar-chart">&nbsp;</em> History</a></li>
 			<li><a href="http://localhost/KakeiboHUB/hub/chat"><em class="fa fa-toggle-off">&nbsp;</em> Chat</a></li>
 			<li class="active"><a href="http://localhost/KakeiboHUB/hub/setting"><em class="fa fa-clone">&nbsp;</em> Setting</a></li>
 			<li><a href="http://localhost/KakeiboHUB/hub/logout"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
@@ -109,7 +109,11 @@
 		</div><!--/.row-->
 		<div class="row">
             <div class="col-md-12">
+<<<<<<< HEAD
                 <form data-toggle="validator" role="form" method="post" action="http://localhost/KakeiboHUB/Hub/update/">
+=======
+                <form data-toggle="validator" role="form" method="post" action="http://localhost/KakeiboHub/Hub/update/">
+>>>>>>> e469badf99cb59e28ba5652512f236c105597c38
                     <!-- <?php echo validation_errors(); ?> -->
                     <div class="form-group row">
                         <article class="form-group col-md-6">
