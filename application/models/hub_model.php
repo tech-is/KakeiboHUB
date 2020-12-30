@@ -57,6 +57,16 @@ class Hub_model extends CI_Model
         $this->db->update('user', $array);
     }
 
+    // payデータ取り出す
+    public function dashboard_get()
+    {
+        // $query = $this->db->order_by('post_id','DESC');
+        // $query = $this->db->get_where('pay', array('delete_flag' => 0));
+        // // 結果を配列として返す
+        // $result = $query->result_array();
+        // return $result;
+    }
+
     // チャットへ格納
     public function chat_add($data)
     {
@@ -68,8 +78,6 @@ class Hub_model extends CI_Model
     {
     // idの降順に要素を取り出す
     $query = $this->db->order_by('chat_id','DESC');
-    // delete_flagが0のもののみを取り出す
-    $query = $this->db->where('delete_flag',0);
     // table名chatから取得
     $query = $this->db->get('chat');
     // 結果を配列として返す
@@ -82,6 +90,27 @@ class Hub_model extends CI_Model
     {
         $this->db->insert('pay',$data);
     }
+
+    // payデータ取り出す
+    public function pay_get($id)
+    {
+        // delete_flagが0のもののみを取り出す
+        // $query = $this->db->where('delete_flag',0);
+        // table名payから取得
+        // $query = $this->db->get('pay');
+        // $idとpay_idが同じものをpayテーブルから取り出す
+        $query = $this->db->get_where('pay', array('pay_id' => $id ,'delete_flag' => 0));
+        // 結果を配列として返す
+        $result = $query->result_array();
+        return $result;
+    }
+
+    public function pay_delete($data)
+    {
+    $this->db->where('post_id',$data);
+    $this->db->update('pay',array('delete_flag' => 1));
+    }
+
 
 }
 
