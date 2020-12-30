@@ -5,11 +5,13 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>家計簿掲示板Hub</title>
+		<!-- Favicon-->
+		<link rel="icon" type="image/x-icon" href="<?= base_url('assets/img/silhouettes.png'); ?>" />
 		<!-- BootstrapのCSS読み込み -->
-		<link href="/kakeibohub/assets/css/bootstrap.min.css" rel="stylesheet"> -->
-		<link href="/kakeibohub/assets/css/font-awesome.min.css" rel="stylesheet">
-		<link href="/kakeibohub/assets/css/datepicker3.css" rel="stylesheet">
-		<link href="/kakeibohub/assets/css/styles.css" rel="stylesheet">
+		<link href="/KakeiboHUB/assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/KakeiboHUB/assets/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/KakeiboHUB/assets/css/datepicker3.css" rel="stylesheet">
+		<link href="/KakeiboHUB/assets/css/styles.css" rel="stylesheet">
 		<!--Custom Font-->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 	</head>
@@ -90,7 +92,7 @@
 		</div>
 		<div class="divider"></div>
 		<ul class="nav menu">
-		<li><a href="http://localhost/KakeiboHUB/hub/dashboard/"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
+			<li><a href="http://localhost/KakeiboHUB/hub/dashboard/"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
 			<li class="active"><a href="http://localhost/KakeiboHUB/hub/pay"><em class="fa fa-calendar">&nbsp;</em> Post</a></li>
 			<li><a href="http://localhost/KakeiboHUB/hub/history"><em class="fa fa-bar-chart">&nbsp;</em> History</a></li>
 			<li><a href="http://localhost/KakeiboHUB/hub/chat"><em class="fa fa-toggle-off">&nbsp;</em> Chat</a></li>
@@ -109,20 +111,26 @@
 		<div class="panel panel-container">
 			<div class="row">
 				<div class="col-md-12">
+					<!-- 空の場合errorメッセージを出力する -->
+					<?php if(!empty($error)) { ?>
+						<p class="text-danger col-md-12"><?php echo $error; ?></p>
+					<?php } ?>
+
 					<form action="http://localhost/KakeiboHUB/Hub/pay_add" method="POST">
-					<input type="hidden" name="pay_id" value="<?= $array[0]['id'] ?>">
-						<tr>
-							<td align="right"><b> ￥：</b></td>
-							<td><input type="text" name="cost" size="15" maxlength="20"></td>
-						</tr>
-						<tr>
-							<td><input type="tel" name="private_cost" placeholder="何に使いましたか？"></td>
-						</tr>
-						<tr>
-							<td>
-								<button type="submit" class="btn btn-primary btn-lg" value="出費登録">PUSH!</button>
-							</td>
-						</tr>
+						<div>
+							<div class="form-group col-md-6">
+								<label for="inputEmail4">金額</label>
+								<input type="tel"name="cost" class="form-control" id="cost" placeholder="Cost">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="inputPassword4">何に使いましたか</label>
+								<input type="tel" name="private_cost" class="form-control" id="private_cost" placeholder="正直に言って">
+							</div>
+						</div>
+						<div class="text-right col-md-12">
+							<button type="submit" class="btn btn-primary btn-lg btn-block" value="">PUSH!</button>
+						</div>
+						<input type="hidden" name="pay_id" value="<?= $array[0]['id'] ?>">
 					</form>
 				</div>
 			</div><!--/.row-->

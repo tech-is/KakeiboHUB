@@ -83,8 +83,15 @@ class Hub extends CI_Controller
         //$id = $this->input->get('id');
         $id = $_SESSION['id'];
         $data['array'] = $this->hub_model->update_setting($id);
+        $data['array_inf'] = $this->hub_model->dashboard_get();
         $this->load->helper(array('form', 'url'));
-        $this->load->view('hub_view',$data);
+        $name = $data['array'][0]['name'];
+        if($name == ""){
+        header("location: http://localhost/KakeiboHUB/hub/first");
+        exit;
+        }else{
+            $this->load->view('hub_view',$data);
+        }
     }
     
     public function pay()
@@ -102,6 +109,16 @@ class Hub extends CI_Controller
         $pay_id = $this->input->post('pay_id');
         $cost = $this->input->post('cost');
         $private_cost = $this->input->post('private_cost');
+        // 空の場合エラーメッセージを表示する
+        if($cost == "" | $private_cost == ""){
+            $data = [
+                'error' => '※金額と何に使ったかはっきりしてください！',
+            ];
+            $id = $_SESSION['id'];
+            $data['array'] = $this->hub_model->update_setting($id);
+            $this->load->helper(array('form', 'url'));
+            $this->load->view('pay_view',$data);
+        }else{
         // XSS フィルタリング
         $pay_id = $this->security->xss_clean($pay_id);
         $cost = $this->security->xss_clean($cost);
@@ -118,14 +135,24 @@ class Hub extends CI_Controller
         $this->load->view('pay_view',$data);
         header("location: http://localhost/KakeiboHUB/hub/pay");
         exit;
+        }
     }
     
     public function history()
     {
         $id = $_SESSION['id'];
         $data['array'] = $this->hub_model->update_setting($id);
+        $data['array_inf'] = $this->hub_model->pay_get($id);
         $this->load->helper(array('form', 'url'));
         $this->load->view('history_view',$data);
+    }
+
+    public function history_delete()
+    {
+        $delete_num = $this->input->get('num',true);
+        $this->hub_model->pay_delete($delete_num);
+        header("location: http://localhost/KakeiboHUB/hub/history");
+        exit;
     }
 
     public function chat() {
@@ -220,12 +247,64 @@ class Hub extends CI_Controller
         }
     }
 
+    public function first()
+    {
+        $id = $_SESSION['id'];
+        $data['array'] = $this->hub_model->update_setting($id);
+        $this->load->helper(array('form', 'url'));
+        $this->load->view('first_view',$data);
+    }
+
+    public function first_add()
+    {
+        $income = $this->input->post('income');
+        $food_cost = $this->input->post('food_cost');
+        $utility_cost = $this->input->post('utility_cost');
+        $rent = $this->input->post('rent');
+        $etc = $this->input->post('etc');
+        $budget = $this->input->post('budget');
+        $name = $this->input->post('name');
+        $age = $this->input->post('age');
+        $from = $this->input->post('from');
+        $job = $this->input->post('job');
+        $id = $this->input->post('id',true);
+        
+        $array = array(
+            'income' => $income,
+            'food_cost' => $food_cost,
+            'utility_cost' => $utility_cost,
+            'rent' => $rent,
+            'etc' => $etc,
+            'budget' => $budget,
+            'name' => $name,
+            'age' => $age,
+            'from' => $from,
+            'job' => $job
+        );
+
+        // バリデーション
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+		if (!$this->form_validation->run('hub'))
+		{
+            header("location: http://localhost/KakeiboHUB/hub/first");
+            exit;
+		} else {
+            $this->load->model('hub_model');
+            $this->hub_model->update($id,$array);
+            $data['array'] = $this->hub_model->update_setting($id);
+            $this->load->view('setting_view',$data);
+            header("location: http://localhost/KakeiboHUB/hub/dashboard");
+            exit;
+        }
+    }
+
     public function logout()
     {
         if (!empty($_SESSION['user_data'])) {
             session_destroy();
         }
-        header('location: http://localhost/KakeiboHUB/hublogin');
+        header('location: http://localhost/KakeiboHUB/');
         exit();
     }
 }

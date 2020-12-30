@@ -93,7 +93,7 @@
 		<div class="divider"></div>
 		<ul class="nav menu">
 			<li><a href="http://localhost/KakeiboHUB/hub/dashboard/"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-			<li><a href="http://localhost/KakeiboHUB/hub/post"><em class="fa fa-calendar">&nbsp;</em> Post</a></li>
+			<li><a href="http://localhost/KakeiboHUB/hub/pay"><em class="fa fa-calendar">&nbsp;</em> Post</a></li>
 			<li><a href="http://localhost/KakeiboHUB/hub/history"><em class="fa fa-bar-chart">&nbsp;</em> History</a></li>
 			<li><a href="http://localhost/KakeiboHUB/hub/chat"><em class="fa fa-toggle-off">&nbsp;</em> Chat</a></li>
 			<li class="active"><a href="http://localhost/KakeiboHUB/hub/setting"><em class="fa fa-clone">&nbsp;</em> Setting</a></li>
@@ -109,11 +109,7 @@
 		</div><!--/.row-->
 		<div class="row">
             <div class="col-md-12">
-<<<<<<< HEAD
                 <form data-toggle="validator" role="form" method="post" action="http://localhost/KakeiboHUB/Hub/update/">
-=======
-                <form data-toggle="validator" role="form" method="post" action="http://localhost/KakeiboHub/Hub/update/">
->>>>>>> e469badf99cb59e28ba5652512f236c105597c38
                     <!-- <?php echo validation_errors(); ?> -->
                     <div class="form-group row">
                         <article class="form-group col-md-6">
@@ -197,13 +193,13 @@
 		</div><!--/.row-->
 	</div>	<!--/.main-->
 	
-	<script src="/hub/assets/js/jquery-1.11.1.min.js"></script>
-	<script src="/hub/assets/js/bootstrap.min.js"></script>
-	<script src="/hub/assets/js/chart.min.js"></script>
-	<script src="/hub/assets/js/chart-data.js"></script>
-	<script src="/hub/assets/js/easypiechart.js"></script>
-	<script src="/hub/assets/js/easypiechart-data.js"></script>
-	<script src="/hub/assets/js/bootstrap-datepicker.js"></script>
-	<script src="/hub/assets/js/custom.js"></script>
+	<script src="/KakeiboHUB/assets/js/jquery-1.11.1.min.js"></script>
+	<script src="/KakeiboHUB/assets/js/bootstrap.min.js"></script>
+	<script src="/KakeiboHUB/assets/js/chart.min.js"></script>
+	<script src="/KakeiboHUB/assets/js/chart-data.js"></script>
+	<script src="/KakeiboHUB/assets/js/easypiechart.js"></script>
+	<script src="/KakeiboHUB/assets/js/easypiechart-data.js"></script>
+	<script src="/KakeiboHUB/assets/js/bootstrap-datepicker.js"></script>
+	<script src="/KakeiboHUB/assets/js/custom.js"></script>
 </body>
 </html>

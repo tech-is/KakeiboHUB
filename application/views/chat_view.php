@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>家計簿掲示板Hub</title>
 		<!-- Favicon-->
-		<link rel="icon" type="image/x-icon" href="<?= base_url('/KakeiboHUB/assets/img/silhouettes.png'); ?>" />
+		<link rel="icon" type="image/x-icon" href="<?= base_url('assets/img/silhouettes.png'); ?>" />
 		<!-- BootstrapのCSS読み込み -->
 		<link href="/KakeiboHUB/assets/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/KakeiboHUB/assets/css/font-awesome.min.css" rel="stylesheet">
@@ -144,7 +144,7 @@
 					<?php } ?>
 					</ul>
 				</div>
-				<form method="post" action="http://localhost/KakeiboHub/Hub/chat_add">
+				<form method="post" action="http://localhost/KakeiboHUB/Hub/chat_add">
 				<input type="hidden" name="user_id" value="<?= $array[0]['id'] ?>">
 				<input type="hidden" name="chat_name" value="<?= $array[0]['name'] ?>">
 					<div class="panel-footer">
