@@ -152,10 +152,6 @@
 							<input id="message" name="message" type="text" class="form-control input-md" placeholder="Type your message here..." /><span class="input-group-btn">
 								<button class="btn btn-primary btn-md" id="btn-chat">Send</button>
 						</span></div>
-						<!-- 空の場合errorメッセージを出力する -->
-						<?php if(isset($error_message["message"])){ ?>
-						<p class="error_message"><?= $error_message["message"]; ?></p>
-						<?php } ?>
 					</div>
 				</form>
 			</div>

@@ -169,14 +169,6 @@ class Hub extends CI_Controller
     $user_id = $this->input->post('user_id');
     $chat_name = $this->input->post('chat_name');
     $message = $this->input->post('message');
-    // 空の場合エラーメッセージを表示する
-    if($message == ""){
-        if($message == ""){
-            $data['error_message'] = [
-            "message" => "メッセージを入力してください！"
-            ];
-        }
-    }
     // XSS フィルタリング
     $user_id = $this->security->xss_clean($user_id);
     $chat_name = $this->security->xss_clean($chat_name);
