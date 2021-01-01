@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hub Login</title>
     <link rel="stylesheet" href="<?= base_url('assets/css/hub.css'); ?>" type="text/css">
+    <link rel="icon" type="image/x-icon" href="<?= base_url('assets/img/silhouettes.png'); ?>" />
 </head>
 <h1>家計簿掲示板Hub</h1>
 <h2>ログイン</h2>

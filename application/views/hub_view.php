@@ -121,8 +121,8 @@
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-blue panel-widget border-right">
 						<div class="row no-padding"><em class="fa fa-xl fa-comments color-orange"></em>
-						<div class="large">1</div>
-							<div class="text-muted">チャット人数</div>
+						<div class="large"><?= $array[0]['job'] ?></div>
+							<div class="text-muted">職業</div>
 						</div>
 					</div>
 				</div>
@@ -145,7 +145,7 @@
 			</div><!--/.row-->
 		</div>
 		<!-- グラフ -->
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -180,55 +180,36 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div><!--/.row-->
-		
+			</div> -->
+		<!-- </div>/.row -->
+
 		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-default ">
+			<div class="col-lg-12">
+				<div class="panel panel-default chat">
 					<div class="panel-heading">
-						Timeline
-						<ul class="pull-right panel-settings panel-button-tab-right">
-							<li class="dropdown"><a class="pull-right dropdown-toggle" data-toggle="dropdown" href="#">
-								<em class="fa fa-cogs"></em>
-							</a>
-							<ul class="dropdown-menu dropdown-menu-right">
-									<li>
-										<ul class="dropdown-settings">
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 1
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 2
-											</a></li>
-											<li class="divider"></li>
-											<li><a href="#">
-												<em class="fa fa-cog"></em> Settings 3
-											</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
-						<div class="panel-body timeline-container">
-						<ul class="timeline">
-							<li>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h4 class="timeline-title">ハリーポッター 愛媛</h4>
-									</div>
-									<div class="timeline-body">
-										<p>ゴルフ　¥20000</p>
-									</div>
+						みんなの家計簿
+						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
+					</div>
+					<div class="panel-body">
+						<ul>
+						<?php $num = count($array_inf); ?>
+						<?php for( $i=0 ; $i<$num ; $i++ ) { ?>
+							<li class="right clearfix"><span class="chat-img pull-right">
+								</span>
+								<div class="chat-body clearfix">
+									<div class="header"><strong class="pull-left primary-font">
+										名前：<?= $array_inf[$i]['name'] ?>　年齢：<?= $array_inf[$i]['age'] ?>　出身：<?= $array_inf[$i]['from'] ?>
+									</strong> <small class="text-muted">
+									</small></div>
+									<p><?= $array_inf[$i]['private_cost'] ?>　¥<?= $array_inf[$i]['cost'] ?></p>
 								</div>
 							</li>
+						<?php } ?>
 						</ul>
 					</div>
 				</div>
-			</div><!--/.col-->
-		</div><!--/.row-->
+			</div>
+		</div><!-- /.row -->
 	</div>	<!--/.main-->
 	
 	<script src="/KakeiboHUB/assets/js/jquery-1.11.1.min.js"></script>

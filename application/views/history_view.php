@@ -112,7 +112,9 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-default">
-						<label for="request-month">これまで投稿した合計：<?= $num = count($array_inf); ?></label>
+						<label for="request-month">
+							これまで投稿した合計：<?= $num = count($array_inf) ; ?>
+						</label>
 					</div>
 				</div>
 			</div>
@@ -133,25 +135,24 @@
 								<th scope="col">Time</th>
 							</tr>
 						</thead>
+						<?php for( $i=0 ; $i<$num ; $i++ ) { ?>
 						<tbody>
-							<?php for( $i=0 ; $i<$num ; $i++ ) { ?>
-								<tr>
-									<!-- <th scope="row"><?= $array_inf[$i]['post_id'] ?></th> -->
-									<td><?= $array_inf[$i]['cost'] ?></td>
-									<td><?= $array_inf[$i]['private_cost'] ?></td>
-									<td><?= $array_inf[$i]['change_at'] ?></td>
-									<td>
-										<div class="user_delete">
-											<button class="btn btn-danger delete" onclick="return click_delete(<?= $array_inf[$i]['post_id'] ?>)">削除</button>
-										</div>
-									</td>
-								</tr>
-								<?php } ?>
+							<tr>
+								<!-- <th scope="row"><?= $array_inf[$i]['post_id'] ?></th> -->
+								<td><?= $array_inf[$i]['cost'] ?></td>
+								<td><?= $array_inf[$i]['private_cost'] ?></td>
+								<td><?= $array_inf[$i]['change_at'] ?></td>
+								<td>
+									<div class="user_delete">
+										<button class="btn btn-danger delete" onclick="return click_delete(<?= $array_inf[$i]['post_id'] ?>)">削除</button>
+									</div>
+								</td>
+							</tr>
 						</tbody>
+						<?php } ?>
 					</table>
 				</div>
 			</div>
-
 		</div>
 	</div>	
 

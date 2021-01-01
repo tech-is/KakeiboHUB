@@ -60,11 +60,15 @@ class Hub_model extends CI_Model
     // payデータ取り出す
     public function dashboard_get()
     {
-        // $query = $this->db->order_by('post_id','DESC');
-        // $query = $this->db->get_where('pay', array('delete_flag' => 0));
-        // // 結果を配列として返す
-        // $result = $query->result_array();
-        // return $result;
+        // SELECT * FROM pay.user WHERE pay.pay_id = user.id
+        $query = $this->db->order_by('post_id','DESC');
+        $query = $this->db->select('*');
+        $query = $this->db->from('pay');
+        $query = $this->db->join('user','pay.pay_id = user.id');
+        $query = $this->db->get();
+        $result = $query->result('array');
+        $query = $this->db->where('delete_flag',0);
+        return $result;
     }
 
     // チャットへ格納
