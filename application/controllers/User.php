@@ -2,7 +2,7 @@
 
 class User extends CI_Controller
 {
-    public function profile($id=null)
+    public function profile($id = null)
     {
         echo $id;
     }
@@ -13,15 +13,15 @@ class User extends CI_Controller
             'name' => '山田太郎',
             'pref' => '東京都'
         ];
-        $this->load->view('tutorial/user_detail',$date);
+        $this->load->view('tutorial/user_detail', $date);
     }
 
     public function url()
     {
-    $this->load->helper('url');
-    echo auto_link('googleのurlは、https://google.comです');
-    echo '<br>';
-    echo site_url();
+        $this->load->helper('url');
+        echo auto_link('googleのurlは、https://google.comです');
+        echo '<br>';
+        echo site_url();
     }
 
     public function agent()
@@ -34,4 +34,3 @@ class User extends CI_Controller
         echo $this->agent->platform();
     }
 }
-?>

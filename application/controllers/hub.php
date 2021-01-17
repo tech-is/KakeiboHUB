@@ -1,4 +1,8 @@
-<?php 
+<?php
+//********************************************** */
+// 会計簿登録〜マイページ・履歴等
+//********************************************** */
+
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Hub extends CI_Controller
@@ -7,34 +11,27 @@ class Hub extends CI_Controller
     {
         // CI_Model constructor の呼び出し
         parent::__construct();
-        $this->load->library('session');
-        $this->load->helper('url');
+        $this->load->library(array('session', 'form_validation'));
+        $this->load->helper(array('form', 'url'));
         $this->load->model('hub_model');
         date_default_timezone_set('Asia/Tokyo');
     }
-    
+
     public function index()
     {
         $data = null;
-        
-        //セッション破棄
         if (!empty($_SESSION['user_data'])) {
             $data['email'] = $_SESSION['user_data']['email'];
             $data['pass'] = $_SESSION['user_data']['pass'];
             $_SESSION = array();
             session_destroy();
         }
-        
-        //ヘルパー呼び出し
-        $this->load->helper(array('form', 'url'));
-        
-        //ライブラリ呼び出し
-        $this->load->library('form_validation');
 
-        //バリデーション設定
+        //バリデーション
         $this->form_validation->set_rules('email', 'メールアドレス', 'trim|required|valid_email');
         $this->form_validation->set_rules('pass', 'パスワード', 'trim|required|min_length[4]');
-        //エラーメッセージの基本形設定
+
+        //エラーメッセージ
         $this->form_validation->set_message('required', '%sが入力されていません。');
 
         if ($this->form_validation->run() == FALSE) {
@@ -55,7 +52,7 @@ class Hub extends CI_Controller
         }
     }
 
-    //登録
+    //ユーザー登録
     public function register()
     {
         if (!empty($_SESSION['user_data'])) {
@@ -78,112 +75,109 @@ class Hub extends CI_Controller
         phpmailer_send($mail, $password, $url);
         $this->load->view('hubsuccess_view');
     }
-    
-    public function dashboard() {
+
+    public function dashboard()
+    {
         //$id = $this->input->get('id');
         $id = $_SESSION['id'];
         $data['array'] = $this->hub_model->update_setting($id);
         $data['array_inf'] = $this->hub_model->dashboard_get();
-        $this->load->helper(array('form', 'url'));
         $name = $data['array'][0]['name'];
-        if($name == ""){
-        header("location: http://localhost/KakeiboHUB/hub/first");
-        exit;
-        }else{
-            $this->load->view('hub_view',$data);
+        if ($name == "") {
+            header("location: ./hub/first");
+            exit;
+        } else {
+            $this->load->view('hub_view', $data);
         }
     }
-    
+
     public function pay()
     {
         $id = $_SESSION['id'];
         $data['array'] = $this->hub_model->update_setting($id);
-        $this->load->helper(array('form', 'url'));
-        $this->load->view('pay_view',$data);
+        $this->load->view('pay_view', $data);
     }
-    
-    public function pay_add() 
+
+    public function pay_add()
     {
-        $this->load->helper('url');
         // postの受け取り
         $pay_id = $this->input->post('pay_id');
         $cost = $this->input->post('cost');
         $private_cost = $this->input->post('private_cost');
         // 空の場合エラーメッセージを表示する
-        if($cost == "" | $private_cost == ""){
+        if ($cost == "" | $private_cost == "") {
             $data = [
                 'error' => '※金額と何に使ったかはっきりしてください！',
             ];
             $id = $_SESSION['id'];
             $data['array'] = $this->hub_model->update_setting($id);
             $this->load->helper(array('form', 'url'));
-            $this->load->view('pay_view',$data);
-        }else{
-        // XSS フィルタリング
-        $pay_id = $this->security->xss_clean($pay_id);
-        $cost = $this->security->xss_clean($cost);
-        $private_cost = $this->security->xss_clean($private_cost);
-        // post情報を配列に格納
-        $data= [
-            'pay_id'       => $pay_id,
-            'cost'         => $cost,
-            'private_cost' => $private_cost
-            // 'created_at'   => date('Y-m-d H:i:s')
-        ];
-        // bbs_modelのbbs_addメソッドにアクセスしpost情報を渡す
-        $this->hub_model->pay_add($data);
-        $this->load->view('pay_view',$data);
-        header("location: http://localhost/KakeiboHUB/hub/pay");
-        exit;
+            $this->load->view('pay_view', $data);
+        } else {
+            // XSS フィルタリング
+            $pay_id = $this->security->xss_clean($pay_id);
+            $cost = $this->security->xss_clean($cost);
+            $private_cost = $this->security->xss_clean($private_cost);
+            // post情報を配列に格納
+            $data = [
+                'pay_id'       => $pay_id,
+                'cost'         => $cost,
+                'private_cost' => $private_cost
+                // 'created_at'   => date('Y-m-d H:i:s')
+            ];
+            // bbs_modelのbbs_addメソッドにアクセスしpost情報を渡す
+            $this->hub_model->pay_add($data);
+            $this->load->view('pay_view', $data);
+            header("location: ./hub/pay");
+            exit;
         }
     }
-    
+
     public function history()
     {
         $id = $_SESSION['id'];
         $data['array'] = $this->hub_model->update_setting($id);
         $data['array_inf'] = $this->hub_model->pay_get($id);
-        $this->load->helper(array('form', 'url'));
-        $this->load->view('history_view',$data);
+        $this->load->view('history_view', $data);
     }
 
     public function history_delete()
     {
-        $delete_num = $this->input->get('num',true);
+        $delete_num = $this->input->get('num', true);
         $this->hub_model->pay_delete($delete_num);
-        header("location: http://localhost/KakeiboHUB/hub/history");
+        header("location: ./hub/history");
         exit;
     }
 
-    public function chat() {
+    public function chat()
+    {
         $id = $_SESSION['id'];
         $data['array'] = $this->hub_model->update_setting($id);
         $data['array_inf'] = $this->hub_model->chat_get();
-        $this->load->helper(array('form', 'url'));
-        $this->load->view('chat_view',$data);
+        $this->load->view('chat_view', $data);
     }
 
     public function chat_add()
     {
-    // postの受け取り
-    $user_id = $this->input->post('user_id');
-    $chat_name = $this->input->post('chat_name');
-    $message = $this->input->post('message');
-    // XSS フィルタリング
-    $user_id = $this->security->xss_clean($user_id);
-    $chat_name = $this->security->xss_clean($chat_name);
-    $message = $this->security->xss_clean($message);
-    // post情報を配列に格納
-    $data = [
-    'user_id' => $user_id,
-    'chat_name' => $chat_name,
-    'message' => $message
-    ];
-    // bbs_modelのbbs_addメソッドにアクセスしpost情報を渡す
-    $this->hub_model->chat_add($data);
-    $this->load->view('Chat_view',$data);
-    header("location: http://localhost/KakeiboHUB/hub/chat");
-    exit;
+        // postの受け取り
+        $user_id = $this->input->post('user_id');
+        $chat_name = $this->input->post('chat_name');
+        $message = $this->input->post('message');
+        // XSS フィルタリング
+        $user_id = $this->security->xss_clean($user_id);
+        $chat_name = $this->security->xss_clean($chat_name);
+        $message = $this->security->xss_clean($message);
+        // post情報を配列に格納
+        $data = [
+            'user_id' => $user_id,
+            'chat_name' => $chat_name,
+            'message' => $message
+        ];
+        // bbs_modelのbbs_addメソッドにアクセスしpost情報を渡す
+        $this->hub_model->chat_add($data);
+        $this->load->view('Chat_view', $data);
+        header("location: ./hub/chat");
+        exit;
     }
 
     public function setting()
@@ -191,8 +185,7 @@ class Hub extends CI_Controller
         //$id = $this->input->get('id');
         $id = $_SESSION['id'];
         $data['array'] = $this->hub_model->update_setting($id);
-        $this->load->helper(array('form', 'url'));
-        $this->load->view('setting_view',$data);
+        $this->load->view('setting_view', $data);
     }
 
     public function update()
@@ -207,8 +200,8 @@ class Hub extends CI_Controller
         $age = $this->input->post('age');
         $from = $this->input->post('from');
         $job = $this->input->post('job');
-        $id = $this->input->post('id',true);
-        
+        $id = $this->input->post('id', true);
+
         $array = array(
             'income' => $income,
             'food_cost' => $food_cost,
@@ -225,16 +218,15 @@ class Hub extends CI_Controller
         // バリデーション
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
-		if (!$this->form_validation->run('hub'))
-		{
-            header("location: http://localhost/KakeiboHUB/hub/setting");
+        if (!$this->form_validation->run('hub')) {
+            header("location: ./hub/setting");
             exit;
-		} else {
+        } else {
             $this->load->model('hub_model');
-            $this->hub_model->update($id,$array);
+            $this->hub_model->update($id, $array);
             $data['array'] = $this->hub_model->update_setting($id);
-            $this->load->view('setting_view',$data);
-            header("location: http://localhost/KakeiboHUB/hub/setting");
+            $this->load->view('setting_view', $data);
+            header("location: ./hub/setting");
             exit;
         }
     }
@@ -244,7 +236,7 @@ class Hub extends CI_Controller
         $id = $_SESSION['id'];
         $data['array'] = $this->hub_model->update_setting($id);
         $this->load->helper(array('form', 'url'));
-        $this->load->view('first_view',$data);
+        $this->load->view('first_view', $data);
     }
 
     public function first_add()
@@ -259,8 +251,8 @@ class Hub extends CI_Controller
         $age = $this->input->post('age');
         $from = $this->input->post('from');
         $job = $this->input->post('job');
-        $id = $this->input->post('id',true);
-        
+        $id = $this->input->post('id', true);
+
         $array = array(
             'income' => $income,
             'food_cost' => $food_cost,
@@ -277,16 +269,15 @@ class Hub extends CI_Controller
         // バリデーション
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
-		if (!$this->form_validation->run('hub'))
-		{
-            header("location: http://localhost/KakeiboHUB/hub/first");
+        if (!$this->form_validation->run('hub')) {
+            header("location: ./hub/first");
             exit;
-		} else {
+        } else {
             $this->load->model('hub_model');
-            $this->hub_model->update($id,$array);
+            $this->hub_model->update($id, $array);
             $data['array'] = $this->hub_model->update_setting($id);
-            $this->load->view('setting_view',$data);
-            header("location: http://localhost/KakeiboHUB/hub/dashboard");
+            $this->load->view('setting_view', $data);
+            header("location: ./hub/dashboard");
             exit;
         }
     }
@@ -296,9 +287,7 @@ class Hub extends CI_Controller
         if (!empty($_SESSION['user_data'])) {
             session_destroy();
         }
-        header('location: http://localhost/KakeiboHUB/');
+        header('location: ./toppage/');
         exit();
     }
 }
-
-?>

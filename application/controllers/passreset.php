@@ -1,21 +1,22 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+//********************************************** */
+// パスワード リセット
+//********************************************** */
+
+if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Passreset extends CI_Controller
 {
     public function __construct()
     {
-        // CI_Model constructor の呼び出し
         parent::__construct();
-        $this->load->library('session');
+        $this->load->library(array('session', 'form_validation'));
+        $this->load->helper(array('form', 'url'));
         date_default_timezone_set('Asia/Tokyo');
     }
 
     public function index()
     {
-        //ヘルパー呼び出し
-        $this->load->helper(array('form', 'url'));
-        $this->load->library('form_validation');
-
         //バリデーション設定
         $this->form_validation->set_rules('email', 'メールアドレス', 'trim|required|valid_email');
         $this->form_validation->set_rules('pass', 'パスワード', 'trim|required|min_length[4]');
