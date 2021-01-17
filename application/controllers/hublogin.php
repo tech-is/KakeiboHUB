@@ -41,8 +41,7 @@ class Hublogin extends CI_Controller
             $mail = $this->input->post('email', true);
             $password = $this->input->post('pass', true);
 
-            if($this->hub_model->get_login($mail, $password))
-                {
+            if ($this->hub_model->get_login($mail, $password)) {
                 // post情報を配列に格納
                 $data = [
                     'email' => $mail,
@@ -55,15 +54,15 @@ class Hublogin extends CI_Controller
 
                 $_SESSION['user_data'] = $data;
                 $_SESSION['id'] = $data['id'];
-                
+
                 // $this->load->view('toppage_view', $data);
-                header('location: http://localhost/KakeiboHUB/hub/dashboard/');
+                header('location: ./hub/dashboard/');
                 exit;
             } else {
                 $data = [
                     'error' => 'メールアドレスかパスワードが違います',
                 ];
-                $this->load->view('hublogin_view',$data);
+                $this->load->view('hublogin_view', $data);
             }
         }
     }
